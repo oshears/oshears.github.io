@@ -31,6 +31,10 @@ body{
 	margin-top: 5px;
 	font-family: georgia;
 	display: inline-block;
+	font-size:14px;
+    height:50px;
+    margin: auto;
+	text-align: center;
 }
 /* but try and be as concise as possible */
 #nav{
