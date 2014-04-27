@@ -31,6 +31,7 @@ body{
 	margin-top: 5px;
 	font-family: georgia;
 	display: inline-block;
+	color: orange;
 }
 /* but try and be as concise as possible */
 #nav{
@@ -60,9 +61,6 @@ body{
 	background: white;
 	padding: 20px;
 	clear: both;
-}
-#nopadding{
-	padding: 0px;
 }
 #mainImage{
 	height:100px;
