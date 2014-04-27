@@ -61,6 +61,9 @@ body{
 	padding: 20px;
 	clear: both;
 }
+#nopadding{
+	padding: 0px;
+}
 #mainImage{
 	height:100px;
     width:300px;
