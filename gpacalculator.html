@@ -39,38 +39,69 @@ output {
 <script type="text/javascript">
 function updateOutput() { 
     //get form
-  var form = document.getElementById("calc");
+    var form = document.getElementById("calc");
 
     //get output
-  var out = form.elements["z"];
-    //get two numbers
-  var num1 = parseInt(form.elements["x"].value);
-  var num2 = parseInt(form.elements["y"].value);
-    //get operator
-  var operator = parseInt(form.elements["op"].value);
-    //set output depending on operator
+    var c1_out = form.elements["c1_qps"];
+    var c2_out = form.elements["c2_qps"];
+    var c3_out = form.elements["c3_qps"];
+    var c4_out = form.elements["c4_qps"];
+    var c5_out = form.elements["c5_qps"];
+    var c6_out = form.elements["c6_qps"];
+    var c7_out = form.elements["c7_qps"];
+    var c8_out = form.elements["c8_qps"];
 
-    var result = {};
-    
+    var c1_qpVal = parseFloat(form.elements["c1QaulPtVal"].value);
+    var c2_qpVal = parseFloat(form.elements["c2QaulPtVal"].value);
+    var c3_qpVal = parseFloat(form.elements["c3QaulPtVal"].value);
+    var c4_qpVal = parseFloat(form.elements["c4QaulPtVal"].value);
+    var c5_qpVal = parseFloat(form.elements["c5QaulPtVal"].value);
+    var c6_qpVal = parseFloat(form.elements["c6QaulPtVal"].value);
+    var c7_qpVal = parseFloat(form.elements["c7QaulPtVal"].value);
+    var c8_qpVal = parseFloat(form.elements["c8QaulPtVal"].value);
 
-  switch(operator)
-  {
-    //add
-    case 0:
-    out.value = num1+num2;
-      break;
-      //subtract
-    case 1: out.value = num1-num2;
-    break;
-    //multiply
-    case 2: out.value = num1*num2;
-    break;
-    //divide
-    case 3: out.value = (num1/num2).toFixed(1);//only one digit after decimal place
-    break;
-    default:
-      break;
-  }
+    var c1_credits = parseFloat(form.elements["c1Cred"].value);
+    var c2_credits = parseFloat(form.elements["c2Cred"].value);
+    var c3_credits = parseFloat(form.elements["c3Cred"].value);
+    var c4_credits = parseFloat(form.elements["c4Cred"].value);
+    var c5_credits = parseFloat(form.elements["c5Cred"].value);
+    var c6_credits = parseFloat(form.elements["c6Cred"].value);
+    var c7_credits = parseFloat(form.elements["c7Cred"].value);
+    var c8_credits = parseFloat(form.elements["c8Cred"].value);
+
+
+    c1_out.value=(c1_qpVal*c1_credits).toFixed(2);
+    c2_out.value=(c2_qpVal*c2_credits).toFixed(2);
+    c3_out.value=(c3_qpVal*c3_credits).toFixed(2);
+    c4_out.value=(c4_qpVal*c4_credits).toFixed(2);
+    c5_out.value=(c5_qpVal*c5_credits).toFixed(2);
+    c6_out.value=(c6_qpVal*c6_credits).toFixed(2);
+    c7_out.value=(c7_qpVal*c7_credits).toFixed(2);
+    c8_out.value=(c8_qpVal*c8_credits).toFixed(2);
+
+    var c1_points = parseFloat(c1_out.value).toFixed(2);
+    var c2_points = parseFloat(c2_out.value).toFixed(2);
+    var c3_points = parseFloat(c3_out.value).toFixed(2);
+    var c4_points = parseFloat(c4_out.value).toFixed(2);
+    var c5_points = parseFloat(c5_out.value).toFixed(2);
+    var c6_points = parseFloat(c6_out.value).toFixed(2);
+    var c7_points = parseFloat(c7_out.value).toFixed(2);
+    var c8_points = parseFloat(c8_out.value).toFixed(2);
+
+    var totalCreds = form.elements["totalCreds"];
+    var totalPoints = form.elements["totalPoints"];
+    var gpa = form.elements["gpa"];
+
+    var chFromTrans = parseFloat(form.elements["chFromTrans"].value);
+    var qpFromTrans = parseFloat(form.elements["qpFromTrans"].value);
+    var cumGpa = form.elements["cumGpa"];
+
+    totalCreds.value=(c1_credits+c2_credits+c3_credits+c4_credits+c5_credits+c6_credits+c7_credits+c8_credits).toFixed(2);
+    totalPoints.value=(parseFloat(c1_points)+parseFloat(c2_points)+parseFloat(c3_points)+parseFloat(c4_points)+parseFloat(c5_points)+parseFloat(c6_points)+parseFloat(c7_points)+parseFloat(c8_points));
+
+
+    gpa.value=(parseFloat(totalPoints.value)/parseFloat(totalCreds.value)).toFixed(3);
+    cumGpa.value=((parseFloat(qpFromTrans)+parseFloat(totalPoints.value))/(parseFloat(chFromTrans)+parseFloat(totalCreds.value))).toFixed(3);
 
 }
 
@@ -81,24 +112,8 @@ function updateOutput() {
 <body>
     <h2>George Mason University GPA Calculator</h2>
     <form id="calc" oninput="updateOutput()">
-    <!--
-        <! 1st Text Box
-        <input name="x" type="number" value="0" />
-        <! Selection Box 
-        <select name="op" onchange="updateOutput()">
-            <option value="0">+</option>
-            <option value="1">-</option>
-            <option value="2">&times;</option>
-            <option value="3">&divide;</option>
-        </select> 
-        <! 2nd Text Box
-        <input name="y" type="number" value="0" />
-        <label for="result">=</label>
-        <output id="result" name="z" for="x y">0</output><br>
-    -->
 
-
-        Course 1 <input type="text" name="course1">
+        Course 1: <input type="text" name="course1">
         <label for="c1grade">Grade:</label>
         <select name="c1grade">
             <option value="0">A</option>
@@ -107,12 +122,12 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c1QaulPtVal"> *
-        Credits <input type="text" name="c1Cred"> =
-        <output id="course1_qps" name="c1_qps" for "c1grade c1QaulPtVal c1Cred">0</output> Quality Points 
+        Quality Point Value: <input type="text" name="c1QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c1Cred" value="0"> =
+        <output id="course1_qps" name="c1_qps" for "c1grade c1QaulPtVal c1Cred" maxlength="3">0</output> Quality Points 
         <br><br>
 
-        Course 2 <input type="text" name="course2">
+        Course 2: <input type="text" name="course2">
         <label for="c2grade">Grade:</label>
         <select name="c2grade">
             <option value="0">A</option>
@@ -121,12 +136,12 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c2QaulPtVal"> *
-        Credits <input type="text" name="c2Cred"> =
+        Quality Point Value: <input type="text" name="c2QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c2Cred" value="0"> =
         <output id="course2_qps" name="c2_qps" for "c2grade c2QaulPtVal c2Cred">0</output> Quality Points 
         <br><br>
 
-        Course 3 <input type="text" name="course3">
+        Course 3: <input type="text" name="course3">
         <label for="c3grade">Grade:</label>
         <select name="c3grade">
             <option value="0">A</option>
@@ -135,12 +150,12 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c3QaulPtVal"> *
-        Credits <input type="text" name="c3Cred"> =
+        Quality Point Value: <input type="text" name="c3QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c3Cred" value="0"> =
         <output id="course3_qps" name="c3_qps" for "c3grade c3QaulPtVal c3Cred">0</output> Quality Points 
         <br><br>
 
-        Course 4 <input type="text" name="course4">
+        Course 4: <input type="text" name="course4">
         <label for="c4grade">Grade:</label>
         <select name="c4grade">
             <option value="0">A</option>
@@ -149,12 +164,12 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c4QaulPtVal"> *
-        Credits <input type="text" name="c4Cred"> =
+        Quality Point Value: <input type="text" name="c4QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c4Cred" value="0"> =
         <output id="course4_qps" name="c4_qps" for "c4grade c4QaulPtVal c4Cred">0</output> Quality Points 
         <br><br>
 
-        Course 5 <input type="text" name="course5">
+        Course 5: <input type="text" name="course5">
         <label for="c5grade">Grade:</label>
         <select name="c5grade">
             <option value="0">A</option>
@@ -163,12 +178,12 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c5QaulPtVal"> *
-        Credits <input type="text" name="c5Cred"> =
+        Quality Point Value: <input type="text" name="c5QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c5Cred" value="0"> =
         <output id="course5_qps" name="c5_qps" for "c5grade c5QaulPtVal c5Cred">0</output> Quality Points 
         <br><br>
 
-        Course 6 <input type="text" name="course6">
+        Course 6: <input type="text" name="course6">
         <label for="c6grade">Grade:</label>
         <select name="c6grade">
             <option value="0">A</option>
@@ -177,12 +192,12 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c6QaulPtVal"> *
-        Credits <input type="text" name="c6Cred"> =
+        Quality Point Value: <input type="text" name="c6QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c6Cred" value="0"> =
         <output id="course6_qps" name="c6_qps" for "c6grade c6QaulPtVal c6Cred">0</output> Quality Points 
         <br><br>
 
-        Course 7 <input type="text" name="course7">
+        Course 7: <input type="text" name="course7">
         <label for="c7grade">Grade:</label>
         <select name="c7grade">
             <option value="0">A</option>
@@ -191,12 +206,12 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c7QaulPtVal"> *
-        Credits <input type="text" name="c7Cred"> =
+        Quality Point Value: <input type="text" name="c7QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c7Cred" value="0"> =
         <output id="course7_qps" name="c7_qps" for "c7grade c7QaulPtVal c7Cred">0</output> Quality Points 
         <br><br>
 
-        Course 8 <input type="text" name="course8">
+        Course 8: <input type="text" name="course8">
         <label for="c8grade">Grade:</label>
         <select name="c8grade">
             <option value="0">A</option>
@@ -205,10 +220,21 @@ function updateOutput() {
             <option value="3">D</opton>
             <option value="4">F</opton>
         </select>
-        Quality Point Value <input type="text" name="c8QaulPtVal"> *
-        Credits <input type="text" name="c8Cred"> =
+        Quality Point Value: <input type="text" name="c8QaulPtVal" value="0"> *
+        Credits: <input type="text" name="c8Cred" value="0"> =
         <output id="course8_qps" name="c8_qps" for "c8grade c8QaulPtVal c8Cred">0</output> Quality Points 
         <br><br>
+
+        Total Credits: <output id="totalCreds" name="totalCreds">0</output><br>
+        Total Points: <output id="totalPoints" name="totalPoints">0</output><br>
+        GPA = <output id="gpa" name="gpa">0.00</output>
+        <br><br><br><br>
+
+        Total Credit Hours from Transcript: <input type="text" name="chFromTrans" value="0"><br>
+        Total Quality Points from Transcript: <input type="text" name="qpFromTrans"  value="0"><br>
+        Cumulative GPA = <output id="cumGpa" name="cumGpa">0.00</output>
+        <br><br>
+
     </form>
 </body>
 
