@@ -5,26 +5,210 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="George Mason University GPA Calculator.">
 
-    <title>GPA Calculator</title>
+<title>GPA Calculator</title>
+<!--
+<style type="text/css">
+/*number inputs*/
+input[type="number"] {
+    width:50px; height:30px; 
+    text-align:center; 
+    margin:3px; 
+    float:left;
+}
+
+/*select and equals elements*/
+select, .equals {
+    margin:3px; 
+    float:left;
+}
+
+/*output element*/
+output {
+    display:block; 
+    border:1px solid #333333; 
+    border-radius:5px; 
+    min-width:25px; height:25px; 
+    margin:3px; padding:2px;
+    text-align:center; 
+    background:#000000; 
+    color:#ffffff; 
+    float:left; 
+}
+</style>
+-->
+<script type="text/javascript">
+function updateOutput() { 
+    //get form
+  var form = document.getElementById("calc");
+
+    //get output
+  var out = form.elements["z"];
+    //get two numbers
+  var num1 = parseInt(form.elements["x"].value);
+  var num2 = parseInt(form.elements["y"].value);
+    //get operator
+  var operator = parseInt(form.elements["op"].value);
+    //set output depending on operator
+
+    var result = {};
+    
+
+  switch(operator)
+  {
+    //add
+    case 0:
+    out.value = num1+num2;
+      break;
+      //subtract
+    case 1: out.value = num1-num2;
+    break;
+    //multiply
+    case 2: out.value = num1*num2;
+    break;
+    //divide
+    case 3: out.value = (num1/num2).toFixed(1);//only one digit after decimal place
+    break;
+    default:
+      break;
+  }
+
+}
+
+</script>
 
 </head>
 
 <body>
-    <form action="index.php">
-        Grade: 
-            <select name="Class 1 Grade">
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</opton>
-                <option value="D">D</opton>
-            </select>
-        Grade: 
-            <select name="Class 2 Grade">
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</opton>
-                <option value="D">D</opton>
-            </select>
+    <h2>George Mason University GPA Calculator</h2>
+    <form id="calc" oninput="updateOutput()">
+    <!--
+        <! 1st Text Box
+        <input name="x" type="number" value="0" />
+        <! Selection Box 
+        <select name="op" onchange="updateOutput()">
+            <option value="0">+</option>
+            <option value="1">-</option>
+            <option value="2">&times;</option>
+            <option value="3">&divide;</option>
+        </select> 
+        <! 2nd Text Box
+        <input name="y" type="number" value="0" />
+        <label for="result">=</label>
+        <output id="result" name="z" for="x y">0</output><br>
+    -->
+
+
+        Course 1 <input type="text" name="course1">
+        <label for="c1grade">Grade:</label>
+        <select name="c1grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c1QaulPtVal"> *
+        Credits <input type="text" name="c1Cred"> =
+        <output id="course1_qps" name="c1_qps" for "c1grade c1QaulPtVal c1Cred">0</output> Quality Points 
+        <br><br>
+
+        Course 2 <input type="text" name="course2">
+        <label for="c2grade">Grade:</label>
+        <select name="c2grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c2QaulPtVal"> *
+        Credits <input type="text" name="c2Cred"> =
+        <output id="course2_qps" name="c2_qps" for "c2grade c2QaulPtVal c2Cred">0</output> Quality Points 
+        <br><br>
+
+        Course 3 <input type="text" name="course3">
+        <label for="c3grade">Grade:</label>
+        <select name="c3grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c3QaulPtVal"> *
+        Credits <input type="text" name="c3Cred"> =
+        <output id="course3_qps" name="c3_qps" for "c3grade c3QaulPtVal c3Cred">0</output> Quality Points 
+        <br><br>
+
+        Course 4 <input type="text" name="course4">
+        <label for="c4grade">Grade:</label>
+        <select name="c4grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c4QaulPtVal"> *
+        Credits <input type="text" name="c4Cred"> =
+        <output id="course4_qps" name="c4_qps" for "c4grade c4QaulPtVal c4Cred">0</output> Quality Points 
+        <br><br>
+
+        Course 5 <input type="text" name="course5">
+        <label for="c5grade">Grade:</label>
+        <select name="c5grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c5QaulPtVal"> *
+        Credits <input type="text" name="c5Cred"> =
+        <output id="course5_qps" name="c5_qps" for "c5grade c5QaulPtVal c5Cred">0</output> Quality Points 
+        <br><br>
+
+        Course 6 <input type="text" name="course6">
+        <label for="c6grade">Grade:</label>
+        <select name="c6grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c6QaulPtVal"> *
+        Credits <input type="text" name="c6Cred"> =
+        <output id="course6_qps" name="c6_qps" for "c6grade c6QaulPtVal c6Cred">0</output> Quality Points 
+        <br><br>
+
+        Course 7 <input type="text" name="course7">
+        <label for="c7grade">Grade:</label>
+        <select name="c7grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c7QaulPtVal"> *
+        Credits <input type="text" name="c7Cred"> =
+        <output id="course7_qps" name="c7_qps" for "c7grade c7QaulPtVal c7Cred">0</output> Quality Points 
+        <br><br>
+
+        Course 8 <input type="text" name="course8">
+        <label for="c8grade">Grade:</label>
+        <select name="c8grade">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</opton>
+            <option value="3">D</opton>
+            <option value="4">F</opton>
+        </select>
+        Quality Point Value <input type="text" name="c8QaulPtVal"> *
+        Credits <input type="text" name="c8Cred"> =
+        <output id="course8_qps" name="c8_qps" for "c8grade c8QaulPtVal c8Cred">0</output> Quality Points 
+        <br><br>
     </form>
 </body>
 
