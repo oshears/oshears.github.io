@@ -12,3 +12,16 @@ color: #FFFFFF;
 text-align: center;
 
 }
+#myoutercontainer { position:relative }
+#myinnercontainer { position:absolute; top:50%; height:10em; margin-top:-5em }
+#myoutercontainer2 { line-height:4em }
+html, body {
+height: 100%;
+}
+
+#centeredcontent {
+width: 100px;
+height: 100px;
+text-align: center;
+color: #fff;
+}
