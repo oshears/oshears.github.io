@@ -1,0 +1,14 @@
+body {
+    background-image: url("bdayFlag2.png");
+    background-repeat: repeat-x;
+    background-size: 100%;	
+    margin: 0;
+  	padding: 0;
+  	background-color: #1E2A6A;
+}
+h1{
+
+color: #FFFFFF;
+text-align: center;
+
+}
