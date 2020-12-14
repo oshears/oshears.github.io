@@ -1,0 +1,27 @@
+body {
+    background-image: url("bdayFlag2.png");
+    background-repeat: repeat-x;
+    background-size: 100%;	
+    margin: 0;
+  	padding: 0;
+  	background-color: #1E2A6A;
+}
+h1{
+
+color: #FFFFFF;
+text-align: center;
+
+}
+#myoutercontainer { position:relative }
+#myinnercontainer { position:absolute; top:50%; height:10em; margin-top:-5em }
+#myoutercontainer2 { line-height:4em }
+html, body {
+height: 100%;
+}
+
+#centeredcontent {
+width: 100px;
+height: 100px;
+text-align: center;
+color: #fff;
+}
