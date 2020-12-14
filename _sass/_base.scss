@@ -256,17 +256,6 @@ p {
     }
 }
 
-.img_box {
-    width: 100%;
-    height: 100%;
-}
-.dog_img {
-    width: 100%;
-    height: 100%;
-}
-
-
-
 .footer {
     padding-top: 30px;
     .copyright {
@@ -279,4 +268,16 @@ p {
         color: $heart;
     }
 
+}
+
+// .img_box {
+//     width: 100%;
+//     height: 100%;
+// }
+.dog_img {
+    // width: 100%;
+    // height: 100%;
+    max-width: 100%;
+    // min-width: 300px;
+    height: auto;
 }

@@ -24,12 +24,10 @@
       
         <a href="{{site.baseurl}}/assets/images/dogs/{{ dog-picture.image }}" target="_blank">{{ dog-picture.title }}</a>
         
-        <div class="img_box">
-          <p text-align="text-center">
-            <img src="{{site.baseurl}}/assets/images/dogs/{{ dog-picture.image }}" alt="Image goes here..." class="dog_img">
-          </p>
-        </div>
-        
+        <p text-align="text-center">
+          <img src="{{site.baseurl}}/assets/images/dogs/{{ dog-picture.image }}" alt="Image goes here..." class="dog_img">
+        </p>
+
         {% else %}
         {{ dog-picture.title }}
         {% endif %}
