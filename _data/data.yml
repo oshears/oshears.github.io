@@ -32,7 +32,7 @@ sidebar:
 
     interests:
       - item: My Dogs
-        link: /pages/dogs.html
+        link: dogs.html
 
       - item: Gaming
         link: https://steamcommunity.com/id/epicyoze
@@ -43,11 +43,20 @@ sidebar:
 career-profile:
     title: Career Profile
     summary: |
-      Osaze Shears, a graduate student at Virginia Tech, is passionate about many engineering 
+      Osaze Shears is passionate about many engineering 
       and computational concepts. These include embedded systems, application-specific integrated 
       circuits (ASICs), field-programmable gate arrays (FPGAs), and microprocessor technologies. 
       Osaze spends his free time tutoring other students who are interested in learning to become 
       better computer scientists and engineers to benefit the greater society. 
+
+      Osaze is currently a PhD student at Virginia Tech conducting research under the
+      Multifunctional Integrated Circuits and Systems (MICS) lab. His research interests
+      include:
+        - Spiking Neural Networks
+        - Hardware Acceleration
+        - SoC Design with ASICs and FPGAs
+        - Deep Learning 
+        - Edge Computing
 education:
     - degree: PhD in Computer Engineering
       university: Virginia Polytechnic Institute and State University
@@ -137,9 +146,7 @@ experiences:
 projects:
     title: Projects
     intro: >
-      You can list your side projects or open source libraries in this
-      section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
+      Below is a list of projects that I have engaged in over the years:
     assignments:
       - title: Multiprocessing with Spiking Neural Networks
         link: https://oshears.github.io/assets/docs/vt_ece_5510_project_report.pdf
