@@ -25,6 +25,8 @@ sidebar:
     codewars:
     goodreads: # Number-Username, e.g. 123456-alandoe
     resume: Osaze_Shears_Resume.pdf
+    
+    homepage: index.html
 
     languages:
       - idiom: English

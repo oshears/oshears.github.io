@@ -21,10 +21,15 @@
 
       <span class="project-title">
         {% if dog-picture.image %}
+      
         <a href="{{site.baseurl}}/assets/images/dogs/{{ dog-picture.image }}" target="_blank">{{ dog-picture.title }}</a>
-        <p text-align="text-center">
-          <img src="{{site.baseurl}}/assets/images/dogs/{{ dog-picture.image }}" alt="Image goes here..." width=400>
-        </p>
+        
+        <div class="img_box">
+          <p text-align="text-center">
+            <img src="{{site.baseurl}}/assets/images/dogs/{{ dog-picture.image }}" alt="Image goes here..." class="dog_img">
+          </p>
+        </div>
+        
         {% else %}
         {{ dog-picture.title }}
         {% endif %}
