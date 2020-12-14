@@ -1,0 +1,49 @@
+dogs:
+    title: Dogs
+    intro: >
+      Here are some of my fiance's and my favorite pictures of our dogs: Matcha and Mango Ha-Shears.
+      
+      Matcha is a white Shichon born on December 28th, 2019.
+      
+      Mango is a red Shiba Inu born on September 13th, 2020.
+      
+    images:
+      - title: Matcha and Mango Sun Bathing
+        image: mango_matcha_sunny_nap.jpg
+        tagline:
+      - title: Mango Comes Home
+        image: mango_ride_home.jpg
+        tagline:
+      - title: Matcha and Mango Napping
+        image: matcha_and_mango_nap.jpg
+        tagline:
+      - title: Matcha After Her Spay
+        image: matcha_cone.jpg
+        tagline:
+      - title: Matcha Being Matcha
+        image: matcha_cute.jpg
+        tagline:
+      - title: Matcha With Big Eyes
+        image: matcha_cute_chair.jpg
+        tagline:
+      - title: Matcha and Her Oldest Toy
+        image: matcha_koala.jpg
+        tagline:
+      - title: Matcha's Big Hike
+        image: matcha_little_devil.jpg
+        tagline:
+      - title: Matcha Having a Swim
+        image: matcha_second_swim.jpg
+        tagline:
+      - title: Matcha at Spruce Knob, WV
+        image: matcha_spruce_knob.jpg
+        tagline:
+      - title: Matcha at Virginia Tech
+        image: matcha_vt.jpg
+        tagline:
+      - title: Matcha as a Young Puppy
+        image: matcha_young.jpg
+        tagline:
+      - title: Matcha Woke Up Like This
+        image: matcha_young_bed.jpg
+        tagline:

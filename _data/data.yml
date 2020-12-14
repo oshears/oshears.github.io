@@ -24,14 +24,15 @@ sidebar:
     stack-overflow: # Number/Username, e.g. 123456/alandoe
     codewars:
     goodreads: # Number-Username, e.g. 123456-alandoe
+    resume: Osaze_Shears_Resume.pdf
 
     languages:
       - idiom: English
         level: Native
 
     interests:
-      - item: Dogs
-        link: https://www.w3schools.com
+      - item: My Dogs
+        link: /pages/dogs.html
 
       - item: Gaming
         link: https://steamcommunity.com/id/epicyoze
@@ -52,25 +53,33 @@ education:
       university: Virginia Polytechnic Institute and State University
       time: August 2020 - Present
       details: |
-        Describe your study here lorem ipsum dolor sit amet, consectetuer
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-        sociis natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-        pretium quis, sem.
-          - Bullet point
-          - Bullet point
+        I am currently a PhD student at Virginia Tech conducting research under the
+        Multifunctional Integrated Circuits and Systems (MICS) lab. My research interests
+        include:
+          - Spiking Neural Networks
+          - Hardware Acceleration
+          - SoC Design with ASICs and FPGAs
+          - Deep Learning 
+          - Edge Computing
     - degree: BS in Computer Engineering
       university: George Mason University
       time: June 2014 - May 2018
       details: |
-        Describe your study here lorem ipsum dolor sit amet, consectetuer
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-        sociis natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-        pretium quis, sem.
-          - Bullet point
-          - Bullet point
+        During my undergraduate studies at George Mason, I studied a variety of different
+        topics that provided me with foundatonal knowledge in computer engineering. These
+        topics included:
+          - Digital System Design
+          - Embedded Systems
+          - Circuit Design
+          - Data Structures
 experiences:
+    - role: Graduate Teaching Assistant (GTA)
+      time: May 2018 - July 2020
+      company: Electrical and Computer Engineering Department, George Mason University, Fairfax, Virginia
+      details: |
+        - Provided weekly office hours and remote support for students in ECE 2514: Computational Engineering
+        - Provided grading and logistical support for ECE 2514: Computational Engineering
+
     - role: Digital Logic Design Engineer
       time: May 2018 - July 2020
       company: BAE Systems Inc., Manassas, Virginia
@@ -80,6 +89,50 @@ experiences:
         - Performed design for test pattern generation and bring-up tasks on the RAD5545 single-board computer
         - Mentored a team of interns in programming software to perform memory test and repair tasks
         - Served in the onsite Young Professionals and Health & Wellness committees
+    
+    - role: ASIC Hardware Design Intern
+      time: May 2017 - December 2017
+      company: BAE Systems Inc., Manassas, Virginia
+      details: |
+        - Experience documenting and integrating memory built-in self-test (MBIST) systems written in Verilog and VHDL
+        - Experience modifying and simulating Universal Verification Methodology (UVM) Test Benches
+
+    - role: Private Tutor
+      time: May 2017 - June 2019
+      company: Wyzant
+      details: |
+        - Private tutor on Wyzant.com specializing in computer science, computer engineering and programming languages. 
+        - Subjects include Java, Python, C, C++, Swift/Xcode, and Calculus.
+
+    - role: Learning Assistant (LA)
+      time: August 2017 - December 2017
+      company: Electrical and Computer Engineering Department, George Mason University, Fairfax, Virginia
+      details: |
+        - Assisted with teaching 90 students in ECE 331: Digital Systems Design
+        - Assisted with teaching 60 students in ECE 332: Digital Electronics and Logic Design Lab
+
+    - role: Peer Mentor
+      time: August 2015 - December 2017
+      company: Volgenau School of Engineering, George Mason University, Fairfax, Virginia
+      details: |
+        - Provide mentoring and tutoring services for George Mason University Engineering courses
+        - Equip students with effective study habits and techniques to succeed outside of tutoring
+        - Concentrate in supporting students with Computer Science, Computer Engineering, Physics and Calculus
+    
+    - role: Technology Coordinator & STEP Logistics Coordinator
+      time: September 2014 - May 2017
+      company: Office of Diversity, Inclusion and Multicultural Education, George Mason University, Fairfax, Virginia
+      details: |
+        - Managed the website for ODIME
+        - Assisted with scheduling and organization of GMU's Student Transition Empowerment Program (STEP)
+        - Developed a mobile app to provide information about the STEP program to the students
+
+    - role: President
+      time: May 2016 - May 2017
+      company: F1rst Gen Mason, George Mason University, Fairfax, Virginia
+      details: |
+        - Designed a new visual identity for the organization
+        - Developed an mobile app to help students calculate their grade point averages
 
 projects:
     title: Projects
@@ -90,11 +143,23 @@ projects:
     assignments:
       - title: Multiprocessing with Spiking Neural Networks
         link: https://oshears.github.io/assets/docs/vt_ece_5510_project_report.pdf
-        tagline: "A responsive website template designed to help startups promote, market and sell their products."
+        tagline: A Benchmarking Evaluation of Multithreaded SNNs in BindsNET
 
       - title: Image Classification with Spiking Neural Networks
         link: https://oshears.github.io/adv-ml-2020-snn-project/
-        tagline: "A responsive website template designed to help web developers/designers market their services."
+        tagline: An Accuracy Evaluation of various SNNs for performing MNIST Digit Classification in BindsNET
+      
+      - title: 'Project LENS'
+        link: https://www.youtube.com/watch?v=6TalQVtu-Ss
+        tagline: A Robotic Eye System Using Artificial Muscles
+
+      - title: Single-Cycle MIPS Processor on FPGA
+        link: 
+        tagline: A Simple MIPS Processor Developed on a Basys 2 Development Board
+
+      - title: GMU GPA
+        link: 
+
 
 awards:
     title: Projects
@@ -109,7 +174,7 @@ awards:
 
       - title: Image Classification with Spiking Neural Networks
         link: https://oshears.github.io/adv-ml-2020-snn-project/
-        tagline: "A responsive website template designed to help web developers/designers market their services."
+        tagline: 
 
 
 # publications:
@@ -139,19 +204,25 @@ skills:
 
     toolset:
       - name: Python
-        level: 98%
+        level: 90%
 
       - name: VHDL
-        level: 75%
+        level: 85%
 
       - name: Verilog/System Verilog/UVM
-        level: 75%
+        level: 70%
+
+      - name: Java
+        level: 65%
 
       - name: C/C++
-        level: 50%
+        level: 60%
 
       - name: Adobe Illustrator/ Affinity Designer
-        level: 40%
+        level: 50%
+
+      - name: Xcode/ Swift
+        level: 25%
 
 # footer: >
 #     Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>

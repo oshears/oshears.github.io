@@ -1,0 +1,43 @@
+{% assign dogs = site.data.dog_data.dogs %}
+{% if dogs %}
+<section class="section projects-section">
+
+  <h2 class="section-title">
+    <span class="fa-stack fa-xs">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-archive fa-stack-1x fa-inverse"></i>
+    </span>
+    {{ dogs.title }}
+  </h2>
+
+  {% if dogs.intro %}
+  <div class="intro">
+      <p>{{ dogs.intro }}</p>
+  </div><!--//intro-->
+  {% endif %}
+
+  {% for dog-picture in dogs.images %}
+    <div class="item">
+
+      <span class="project-title">
+        {% if dog-picture.image %}
+        <a href="{{ dog-picture.image }}" target="_blank">{{ dog-picture.title }}</a>
+        <p text-align="text-center">
+          <img src="{{site.baseurl}}/assets/images/dogs/{{ dog-picture.image }}" alt="Image goes here..." width=400>
+        </p>
+        {% else %}
+        {{ dog-picture.title }}
+        {% endif %}
+      </span>
+
+      <!--
+      {% if dog-picture.tagline %}
+      - <span class="project-tagline">{{ dog-picture.tagline }}</span>
+      {% endif %}
+      -->
+
+    </div><!--//item-->
+  {% endfor %}
+
+</section><!--//section-->
+{% endif %}
