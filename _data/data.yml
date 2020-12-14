@@ -90,7 +90,7 @@ experiences:
         - Mentored a team of interns in programming software to perform memory test and repair tasks
         - Served in the onsite Young Professionals and Health & Wellness committees
     
-    - role: ASIC Hardware Design Intern
+    - role: Virginia Microelectronics Consortium (VMEC) Intern
       time: May 2017 - December 2017
       company: BAE Systems Inc., Manassas, Virginia
       details: |
@@ -158,23 +158,39 @@ projects:
         tagline: A Simple MIPS Processor Developed on a Basys 2 Development Board
 
       - title: GMU GPA
-        link: 
+        tagline: A Mobile Application to Help GMU Students Estimate Their GPAs
 
 
 awards:
-    title: Projects
-    intro: >
-      You can list your side projects or open source libraries in this
-      section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
-    assignments:
-      - title: Multiprocessing with Spiking Neural Networks
-        link: https://oshears.github.io/assets/docs/vt_ece_5510_project_report.pdf
-        tagline: "A responsive website template designed to help startups promote, market and sell their products."
-
-      - title: Image Classification with Spiking Neural Networks
-        link: https://oshears.github.io/adv-ml-2020-snn-project/
-        tagline: 
+    title: Awards
+    intro: |
+      Below is a list of my accomplishments over the years.
+    papers:
+      - title: Bradley Fellowship
+        year: January 2020
+        description: Awarded by Virginia Tech's Electrical and Computer Engineering Department
+      - title: ECE Chairman's Award
+        year: May 2018
+        description: Awarded by GMU's Electrical and Computer Engineering Department's
+      - title: ECE Outstanding Academic Achievement Award
+        year: May 2018
+        description: Awarded by GMU's Electrical and Computer Engineering Department's
+      - title: ECE Senior Design Project Award
+        year: May 2018
+        description: Awarded by GMU's Electrical and Computer Engineering Department's  for Project LENS
+      - title: Dean's Advisory Board Award
+        year: April 2018
+        description: Awarded by GMU's Volgenau School of Engineering for Project LENS
+      - title: Honors College
+        year: June 2014 - May 2018
+        description: Awarded by GMU's Honors College
+      - title: OSCAR Fellow
+        year: August 2017
+        description: Awarded by GMU's Office of Student Scholarship, Creative Activities and Research
+      - title: Black Scholar of the Year
+        year: February 2015
+        description: Awarded by GMU's Office of Diversity, Inclusion and Multicultural Education
+      
 
 
 # publications:
