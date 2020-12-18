@@ -28,9 +28,9 @@ sidebar:
     
     homepage: index.html
 
-    languages:
-      - idiom: English
-        level: Native
+    # languages:
+    #   - idiom: English
+    #     level: Native
 
     interests:
       - item: My Dogs
@@ -85,8 +85,8 @@ education:
           - Data Structures
 experiences:
     - role: Graduate Teaching Assistant (GTA)
-      time: May 2018 - July 2020
-      company: Electrical and Computer Engineering Department, George Mason University, Fairfax, Virginia
+      time: August 2020 - Present
+      company: Electrical and Computer Engineering Department, Virginia Tech, Blacksburg, Virginia
       details: |
         - Provided weekly office hours and remote support for students in ECE 2514: Computational Engineering
         - Provided grading and logistical support for ECE 2514: Computational Engineering
