@@ -30,6 +30,10 @@
       {% if project.tagline %}
       - <span class="project-tagline">{{ project.tagline }}</span>
       {% endif %}
+      
+      {% if project.poster %}
+        <div class="publication-conference"><a href="{{ project.poster }}">Poster</a></div>
+      {% endif %}
 
     </div><!--//item-->
   {% endfor %}

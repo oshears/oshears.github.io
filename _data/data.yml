@@ -161,6 +161,22 @@ projects:
       - title: 'Project LENS'
         link: https://www.youtube.com/watch?v=6TalQVtu-Ss
         tagline: A Robotic Eye System Using Artificial Muscles
+        poster: https://oshears.github.io/assets/docs/Project_LENS_Poster.pdf
+
+      - title: Hardware Security Survey
+        link: https://oshears.github.io/assets/docs/OsazeShears_HardwareSecurity.pdf
+        tagline: An overview of the need for hardware security and its implementation. 
+        poster: https://oshears.github.io/assets/docs/OsazeShears_HardwareSecurity.pdf
+
+      - title: Memory Built-In Self-Test Integration
+        link: https://oshears.github.io/assets/docs/OsazeShears_VMECPoster.pdf
+        tagline: An project to improve the integration of MBIST logic into ASICs at BAE Systems.
+        poster: https://oshears.github.io/assets/docs/OsazeShears_VMECPoster.pdf
+
+      - title: Real Estate Price Prediction using Machine Learning
+        link: https://oshears.github.io/assets/docs/OsazeShears_RealestatePrediction.pdf
+        tagline: An introduction to predicting real estate prices in Virginia using various Machine Learning models.
+        poster: https://oshears.github.io/assets/docs/OsazeShears_RealestatePrediction.pdf
 
       - title: Single-Cycle MIPS Processor on FPGA
         link: 
@@ -178,6 +194,9 @@ awards:
       - title: Bradley Fellowship
         year: January 2020
         description: Awarded by Virginia Tech's Electrical and Computer Engineering Department
+      - title: Summa Cum Laude
+        year: May 2018
+        description: Awarded by GMU's Volgenau School of Engineering (VSE)
       - title: ECE Chairman's Award
         year: May 2018
         description: Awarded by GMU's Electrical and Computer Engineering Department's
@@ -189,18 +208,31 @@ awards:
         description: Awarded by GMU's Electrical and Computer Engineering Department's  for Project LENS
       - title: Dean's Advisory Board Award
         year: April 2018
-        description: Awarded by GMU's Volgenau School of Engineering for Project LENS
+        description: Awarded by GMU's Volgenau School of Engineering (VSE) for Project LENS
       - title: Honors College
         year: June 2014 - May 2018
         description: Awarded by GMU's Honors College
       - title: OSCAR Fellow
         year: August 2017
-        description: Awarded by GMU's Office of Student Scholarship, Creative Activities and Research
+        description: Awarded by GMU's Office of Student Scholarship, Creative Activities and Research (OSCAR)
+      - title: Undergraduate Research Scholar Program (URSP) Grant
+        year: January 2017, August 2017
+        description: Awarded by GMU's Office of Student Scholarship, Creative Activities and Research (OSCAR)
       - title: Black Scholar of the Year
         year: February 2015
-        description: Awarded by GMU's Office of Diversity, Inclusion and Multicultural Education
+        description: Awarded by GMU's Office of Diversity, Inclusion and Multicultural Education (ODIME)
+      - title: Dean's List
+        year: June 2014 - May 2018
+        description: Awarded by GMU's Volgenau School of Engineering (VSE)
       
-
+activities:
+    events: 
+      - title: Design Automation Conference Young Fellow Program (2020)
+      - title: EIP College Application Coach (2017)
+      - title: Society of Hispanic Professional Engineers Regional Conference
+      - title: Society of Hispanic Professional Engineers National Conference with Google Travel Fund
+      - title: Student Transition Empowerment Program at George Mason University
+      - title: Boys and Girls Club Robotics Volunteer
 
 # publications:
 #     title: Publications
