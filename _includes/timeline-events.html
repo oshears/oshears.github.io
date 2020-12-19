@@ -1,0 +1,55 @@
+{% assign events = site.data.timeline_data.events %}
+{% assign index = 0 %}
+
+<header>
+    <div class="container text-center timeline-header">
+      <h1>Giaze Timeline</h1>
+      <p>A visual history of Gia and Osaze's relationship!</p>
+      <p><a href="index.html">oshears.github.io</a></p>
+    </div>
+  </header>
+
+  <section class="timeline">
+    <div class="container">
+
+      {% for event in events %}
+        <div class="timeline-item">
+            <div class="timeline-img"></div>
+
+            {% if index == 0 %}
+                {% if event.image %}
+                <div class="timeline-content timeline-card js--fadeInLeft">
+                    <div class="timeline-img-header" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4)), url('./assets/images/timeline/{{event.image}}') center center no-repeat; background-size: contain;">
+                        <h2 style="color:white">{{event.title}}</h2>
+                    </div>
+                {% else %}
+                <div class="timeline-content js--fadeInLeft">
+                    <h2>{{event.title}}</h2>
+                {% endif %}
+                {% assign index = 1 %}
+            {% else %}
+                {% if event.image %}
+                <div class="timeline-content timeline-card js--fadeInRight">
+                    <div class="timeline-img-header" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4)), url('./assets/images/timeline/{{event.image}}') center center no-repeat; background-size: contain;">
+                        <h2 style="color:white">{{event.title}}</h2>
+                </div>
+                {% else %}
+                <div class="timeline-content js--fadeInRight">
+                    <h2>{{event.title}}</h2>
+                {% endif %} 
+                {% assign index = 0 %}
+            {% endif %} 
+                
+                <div class="date">{{ event.date }}</div>
+                <p>{{event.description}}</p>
+
+                <a class="bnt-more" href="javascript:void(0)">More</a>
+            </div>
+        </div> 
+      {% endfor %}
+
+  </section>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js'></script>
+
+<script src="./assets/js/timeline.js"></script>

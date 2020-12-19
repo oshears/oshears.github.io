@@ -1,0 +1,98 @@
+---
+events:
+# https://www.convertcsv.com/csv-to-yaml.htm
+-
+    title: Finished My First Semester @ VT!
+    date: December 1, 2020
+    image: first_semester_done.jpg
+    description: Feels good to be free (for now...)!
+-
+    title: Christmas Girls!
+    date: December 1, 2020
+    image: gia_matcha_christmas.jpg
+    description: 
+-
+    title: Mango Comes Home!
+    date: November 1, 2020
+    image: mango_comes_home.jpg
+    description: 
+-
+    title: Matcha and Mango Hanging Out
+    date: November 1, 2020
+    image: matcha_and_mango_hang.jpg
+    description: 
+-
+    title: Thanksgiving Pitstop!
+    date: November 1, 2020
+    image: thanksgiving_roadside_overlook.jpg
+    description: 
+-
+    title: Match has an Accident    :(
+    date: October 1, 2020
+    image: matcha_accident.jpg
+    description: 
+-
+    title: Cascade Falls
+    date: September 1, 2020
+    image: cascade_falls.jpg
+    description: 
+-
+    title: Gia the Grill Master
+    date: September 1, 2020
+    image: gia_grill_master.jpg
+    description: 
+-
+    title: 'Matcha''s Banana Bed'
+    date: September 1, 2020
+    image: matcha_banana.jpg
+    description: 
+-
+    title: Yappy Hour!
+    date: September 1, 2020
+    image: yappy_hour.jpg
+    description: 
+-
+    title: We moved to Blacksburg, VA!
+    date: August 1, 2020
+    image: gia_osaze_matcha_vt.jpg
+    description: Blacksburg turned out to be a beautiful area, with a lack of good food options.
+-
+    title: Kayaking in the New River
+    date: August 1, 2020
+    image: matcha_kayak_new_river.jpg
+    description: 
+-
+    title: A Father and His Sons
+    date: August 1, 2020
+    image: osaze_dad_zion.jpg
+    description: 
+-
+    title: Graduate School Begins!
+    date: August 1, 2020
+    image: osaze_start_gradschool.jpg
+    description: 
+-
+    title: Gia Surprises Me!
+    date: July 1, 2020
+    image: osaze_birthday_surprise.jpg
+    description: 
+-
+    title: Seneca Rocks, West Virginia
+    date: June 1, 2020
+    image: gia_matcha_seneca_rocks.jpg
+    description: 
+-
+    title: Seneca Rocks
+    date: June 1, 2020
+    image: matcha_senca_rocks.jpg
+    description: 
+-
+    title: Matcha After the Spay
+    date: June 1, 2020
+    image: matcha_spay.jpg
+    description: 
+-
+    title: Spruce Knob
+    date: June 1, 2020
+    image: osaze_matcha_spruce_knob.jpg
+    description: We visited the highest point in West Virginia!
