@@ -17,9 +17,9 @@
         <div class="timeline-img"></div>
 
         {% if index == 0 %}
-            {% if event.image %}
+            {% if event.image_link %}
             <div class="timeline-content timeline-card js--fadeInLeft">
-                <div class="timeline-img-header" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4)), url('./assets/images/timeline/{{event.image}}') center center no-repeat; background-size: contain;">
+                <div class="timeline-img-header" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4)), url('{{event.image_link}}') center center no-repeat; background-size: contain;">
                     <h2 style="color:white">{{event.title}}</h2>
                 </div>
             {% else %}
@@ -28,9 +28,9 @@
             {% endif %}
             {% assign index = 1 %}
         {% else %}
-            {% if event.image %}
+            {% if event.image_link %}
             <div class="timeline-content timeline-card js--fadeInRight">
-                <div class="timeline-img-header" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4)), url('./assets/images/timeline/{{event.image}}') center center no-repeat; background-size: contain;">
+                <div class="timeline-img-header" style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4)), url('{{event.image_link}}') center center no-repeat; background-size: contain;">
                     <h2 style="color:white">{{event.title}}</h2>
             </div>
             {% else %}
@@ -43,7 +43,7 @@
             <div class="date">{{ event.date }}</div>
             <p>{{event.description}}</p>
 
-            <a class="bnt-more" href="./assets/images/timeline/{{event.image}}">Picture</a>
+            <a class="bnt-more" href="{{event.image_link}}">Picture</a>
         </div>
     </div>
     {% endfor %}
