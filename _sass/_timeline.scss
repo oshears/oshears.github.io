@@ -6,12 +6,24 @@ $primary-text: #3F4650;
 $secondary-text: #545E6C;
 $accent: #fb866a;
 
+.timeline-html {
+	overflow-x: hidden;
+}
+.timeline-body{
+	overflow-x: hidden;
+	padding: 0;
+}
+
+.timeline-section {
+	padding: 100px 0;
+}
 
 .timeline-header {
-	background: $primary;
+	background: #4B6A78;
 	color: $smoky-white;
 	padding: 30px 0;
-
+	margin: 0;
+	width: 100%;
 	p {
 		margin-bottom: 0;
 		margin-top: 10px;
@@ -21,12 +33,23 @@ $accent: #fb866a;
 	}
 }
 
+.timeline-h1{
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.timeline-bg{
+	// background:#fff;
+	// max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
 .timeline {
 
 	position: relative;
 
-	margin-top: 10px;
-
+	// Timeline Line
 	&::before {
 		content: '';
 		background: $light-primary;
@@ -72,6 +95,26 @@ $accent: #fb866a;
 		display: block;
 		clear: both;
 	}
+
+	a {
+		background: $primary;
+		color: $light-primary;
+		padding: 8px 20px;
+		text-transform: uppercase;
+		font-size: 14px;
+		margin-bottom: 20px;
+		margin-top: 10px;
+		display: inline-block;
+		border-radius: 2px;
+		box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .6);
+	
+		&:hover, &:active, &:focus {
+			background: darken($primary, 10%);
+			color: $text;
+			text-decoration: none;
+		}
+	
+	}
 }
 
 
@@ -106,27 +149,7 @@ $accent: #fb866a;
 	margin-top: 25px;
 	margin-left: -15px;
 }
-/*
-a {
-	background: $primary;
-	color: $text;
-	padding: 8px 20px;
-	text-transform: uppercase;
-	font-size: 14px;
-	margin-bottom: 20px;
-	margin-top: 10px;
-	display: inline-block;
-	border-radius: 2px;
-	box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .6);
 
-	&:hover, &:active, &:focus {
-		background: darken($primary, 10%);
-		color: $text;
-		text-decoration: none;
-	}
-
-}
-*/
 .timeline-card {
 	padding: 0!important;
 
@@ -153,14 +176,14 @@ a {
 		left: 20px;
 	}
 }
-/*
-blockquote {
+
+.timeline_blockquote {
 	margin-top: 30px;
 	color: $secondary-text;
 	border-left-color: $primary;
 	padding: 0 20px;
 }
-*/
+
 .date {
 	background: $accent;
 	display: inline-block;
@@ -170,7 +193,7 @@ blockquote {
 	top: 0;
 	right: 0;
 }
-/*
+
 @media screen and (max-width: 768px) {
 
 	.timeline {
@@ -221,4 +244,3 @@ blockquote {
 	}
 	
 }
-*/

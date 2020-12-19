@@ -20,3 +20,11 @@ This page contains a timeline of events in the lives of OMMG (Osaze, Matcha, Man
 
 ## Converting Excel Data to Yaml
 Visit this website: https://www.convertcsv.com/csv-to-yaml.htm
+
+## Timeline Source
+Vertical Timeline by Sava Lazic
+https://codepen.io/savalazic/pen/QKwERN/
+
+## Jekyll Theme
+Online CV by Sharath Kumar
+https://github.com/sharu725/online-cv
