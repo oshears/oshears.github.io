@@ -1,5 +1,14 @@
 # Osaze Shears's Personal Website
 
+## Formatting the Gemfile ##
+
+A gem file should be created in the primary directory and contain the following:
+```
+source "https://rubygems.org"
+gem "github-pages", group: :jekyll_plugins
+gem 'jekyll-include-cache'
+```
+
 ## Compiling the Website
 ```
 bundle exec jekyll serve
