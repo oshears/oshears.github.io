@@ -42,8 +42,9 @@
             
             <div class="date">{{ event.date }}</div>
             <p>{{event.description}}</p>
-
+            {% if event.image_link %}
             <a class="bnt-more" href="{{event.image_link}}">Picture</a>
+            {% endif %} 
         </div>
     </div>
     {% endfor %}
