@@ -3,3 +3,4 @@ Gemfile
 Gemfile.lock
 .jekyll-cache/
 _site/
+_data/~$timeline.xlsx
