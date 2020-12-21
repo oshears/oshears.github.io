@@ -50,5 +50,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add _data/timeline_data.yml
-          git commit -m "Updated"
+          git commit -m "Updated timeline_data.yml"
           git push
