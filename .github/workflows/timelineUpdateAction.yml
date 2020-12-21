@@ -12,6 +12,7 @@ on:
   schedule:
     # runs every minute of the day
     - cron:  '* * * * *'
+  
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -50,5 +51,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add _data/timeline_data.yml
+          git add _data/test_timeline.xlsx
           git commit -m "Updated timeline_data.yml"
           git push
