@@ -9,6 +9,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  schedule:
+    # runs every minute of the day
+    - cron:  '* * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
