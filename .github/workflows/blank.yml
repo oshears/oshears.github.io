@@ -33,9 +33,9 @@ jobs:
       # install dependencies
       - name: Install dependencies for updating the timeline data
         run: |
-          python -m pip install --upgrade pip
-          pip install PyYAML
-          pip install openpyxl
+          python3 -m pip install --upgrade pip
+          pip3 install PyYAML
+          pip3 install openpyxl
         
           
 
@@ -43,4 +43,4 @@ jobs:
       - name: Run script to update timeline data
         run: |
           cd _data
-          python xlsxToYaml.py
+          python3 xlsxToYaml.py
