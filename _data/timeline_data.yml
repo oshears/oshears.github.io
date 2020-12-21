@@ -65,5 +65,10 @@ events:
 - {date: 31 May 2020, description: We hiked up Little Devil Stairs at Shenandoah National
     Park, image_link: 'https://lh3.googleusercontent.com/vfkLTwaR-cWaGbcs37gEU58kzvTEmNMsHIVHMDuIzu7JAwmuz8RUm5to6TZtiBR8eRl86ncdlExliUyMCcS9iXf9meQGfEQkdL7hYQi0MTBamZnm2YNR1O20UQOBExZ3sE28YsC8tbY=w2400',
   title: Little Devil Stairs}
-- {date: 23 July 1996, description: This event was added exclusively with github actions.,
-  image_link: null, title: Test Event}
+- {date: 10 January 2020, description: 'Gia, Huy Dang and I visit our friend Jerry
+    Romero in California. In this picture we checked out Big Bear Lake in the San
+    Bernadino Mountains', image_link: 'https://lh3.googleusercontent.com/OyC92bak7uCupaicl0_AqN5mzvVd1R18FGXc48q45GuQw1YKVNoMIeWjk4DdA9x3R3_lAJOLN7RmULf7uAT1EScDrNqE8CWtipwmG9o-RGn7WY-oS3HxH1e1sAQpBabUCvoqsuKrR_U=w2400',
+  title: Big Bear Lake!}
+- {date: 11 January 2020, description: 'While visiting our friend Jerry Romero in
+    California, we visit the Hoover Dam and took some stunning images.', image_link: 'https://lh3.googleusercontent.com/95k0WhpX4kxufYUod_yiIO4A5x3OVyztwtOA3DPJwTjsk3uEnP9xjwXgYZ6vii9jXS7KCWnH01dH6roiD3RfQPQFGsBeD_bSPOuYvSBKVATN8jp3pCpsznItZHSu60RFsuKv2kNJVUA=w2400',
+  title: Hoover Dam!}
