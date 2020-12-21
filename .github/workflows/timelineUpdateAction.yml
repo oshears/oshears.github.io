@@ -42,6 +42,8 @@ jobs:
       - name: Run script to update timeline data  
         run: |
           cd _data
+          rm _timeline_data.yml
+          rm test_timeline.xlsx
           python3 xlsxToYaml.py
           
       - name: Push updated data back to repo
