@@ -36,17 +36,19 @@ jobs:
           sudo apt-get install python3-setuptools
           python3 -m pip install --upgrade pip
           pip3 install PyYAML
-          pip3 install openpyxl
-        
+          pip3 install openpyxl 
           
-
-      # run the script to update the timeline data
-      - name: Run script to update timeline data
+      - name: Run script to update timeline data  
         run: |
           cd _data
           python3 xlsxToYaml.py
           
-      - name: action-push
-        # You may pin to the exact commit or the version.
-        # uses: ludeeus/action-push@0b7c1175655379c008f42bbaf524caa79cf89ec1
-        uses: ludeeus/action-push@0.0.1
+      - name: Push updated data back to repo
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} 
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add _data/timeline_data.yml
+          git commit -m "Updated"
+          git push
