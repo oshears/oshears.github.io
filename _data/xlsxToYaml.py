@@ -2,8 +2,16 @@ from openpyxl import load_workbook
 import yaml
 from yaml import load, dump
 import datetime
+import requests
+ 
+url = 'https://docs.google.com/uc?export=download&id=1a1eBoO0S2vbVu0psuKz6HhVmgtEFBUxz'
+r = requests.get(url)
+filename = "test_timeline.xlsx"
+with open(filename,'wb') as output_file:
+    output_file.write(r.content)
+# wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1a1eBoO0S2vbVu0psuKz6HhVmgtEFBUxz' -O test.xlsx
 
-wb = load_workbook(filename = 'timeline.xlsx')
+wb = load_workbook(filename = 'test_timeline.xlsx')
 sheet = wb['timeline']
 
 # title, date, description, link
