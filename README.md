@@ -47,3 +47,7 @@ https://github.com/sharu725/online-cv
 ## Embedded Google Photos
 
 The photos were embedded by acquiring permanent google photos links and using this website: https://www.labnol.org/embed/google/photos/
+
+## Embedded Google Photos Album
+
+The dog album was embedded using the website: https://www.publicalbum.org/blog/embedding-google-photos-albums
