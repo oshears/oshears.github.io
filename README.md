@@ -11,7 +11,7 @@ gem 'jekyll-include-cache'
 
 ## Compiling the Website
 ```
-bundle exec jekyll serve
+bundle exec jekyll serve --livereload
 ```
 
 ## Viewing the Website
