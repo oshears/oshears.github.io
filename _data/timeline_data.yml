@@ -1,6 +1,11 @@
 ---
 events:
-- {date: 03 January 2021, description: null, image_link: null, title: TBD}
+- {date: 07 January 2021, description: Our good friend Maryam Ansari got us a customized
+    Matcha Mug from Etsy for Christmas! This is truly one of the best gifts we have
+    both ever recieved!, image_link: 'https://lh3.googleusercontent.com/xM2oMq_i5VgUawbkPAApVMsZVJ7e5umni5cmtTYtNF5TBqd0eI3rnvHsFK3iKUASoxLvN50DvdQW4Z1Ut0Fe71sdThSbwvd89b2rpQSprJtesvNWPpaSKfvw1JeAyCBHKjCE7iBto8I=w2400',
+  title: Matcha Mug!}
+- {date: 06 January 2021, description: Gia and I made enchiladas for the first time
+    thanks to a meal kit sent to us by Dinerly.com!, image_link: null, title: Enchiladas!}
 - {date: 02 January 2021, description: Gia and I checked out Heritage Park in Blacksburg.
     Gia also scored me a stylish Virginia Tech jacket!, image_link: null, title: Heritage
     Community Park and Natural Area}
