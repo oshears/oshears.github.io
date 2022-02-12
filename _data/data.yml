@@ -48,11 +48,13 @@ career-profile:
     summary: |
       Osaze Shears is passionate about many engineering 
       and computational concepts. These include embedded systems, application-specific integrated 
-      circuits (ASICs), field-programmable gate arrays (FPGAs), and microprocessor technologies. 
-      Osaze spends his free time tutoring other students who are interested in learning to become 
-      better computer scientists and engineers to benefit the greater society. 
+      circuits (ASICs), field-programmable gate arrays (FPGAs), and microprocessor technologies.
 
-      Osaze is currently a PhD student at Virginia Tech conducting research under the
+      Osaze spends his free time tutoring other students who are interested in learning to become 
+      better computer scientists and engineers to benefit the greater society. The platform he uses
+      is Wyzant and has worked with Wyzant for nearly 5 years.
+
+      Osaze is currently a M.S. student at Virginia Tech conducting research under the
       Multifunctional Integrated Circuits and Systems (MICS) lab. His research interests
       include:
         - Spiking Neural Networks
@@ -63,11 +65,11 @@ career-profile:
         - Augmented and Mixed Reality
 
 education:
-    - degree: PhD in Computer Engineering
+    - degree: M.S. in Computer Engineering
       university: Virginia Polytechnic Institute and State University
-      time: August 2020 - Present
+      time: August 2020 - May 2022
       details: |
-        I am currently a PhD student at Virginia Tech conducting research under the
+        I am currently a M.S. student at Virginia Tech conducting research under the
         Multifunctional Integrated Circuits and Systems (MICS) lab. My research interests
         include:
           - Spiking Neural Networks
@@ -87,8 +89,26 @@ education:
           - Circuit Design
           - Data Structures
 experiences:
-    - role: Graduate Teaching Assistant (GTA)
+    
+    - role: Graduate Research Assistant (GRA)
       time: August 2020 - Present
+      company: Electrical and Computer Engineering Department, Virginia Tech, Blacksburg, Virginia
+      details: |
+        - Researching under the Multifunctional Integrated Circuits and Systems (MICS) Lab 
+        - Studying neuromorphic computing implementations on digital integrated circuits
+        - Collaborating with other graduate students to develop next generation machine learning hardware leveraging neuromorphic computing
+        - Mentoring a team of 4 undergraduate students in researching digital neuromorphic computing, machine learning, and reservoir computing
+
+    - role: Private Tutor
+      time: May 2017 - Present
+      company: Wyzant
+      details: |
+        - Private tutor on Wyzant.com specializing in computer science, computer engineering and programming languages. 
+        - Subjects include Verilog, VHDL, Java, Python, C, C++, Swift/Xcode, and Calculus
+        - Computer science and engineering tutoring available at: https://www.wyzant.com/Tutors/Osaze
+
+    - role: Graduate Teaching Assistant (GTA)
+      time: August 2020 - May 2021
       company: Electrical and Computer Engineering Department, Virginia Tech, Blacksburg, Virginia
       details: |
         - Provided weekly office hours and remote support for students in ECE 2514: Computational Engineering
@@ -110,13 +130,6 @@ experiences:
       details: |
         - Experience documenting and integrating memory built-in self-test (MBIST) systems written in Verilog and VHDL
         - Experience modifying and simulating Universal Verification Methodology (UVM) Test Benches
-
-    - role: Private Tutor
-      time: May 2017 - June 2019
-      company: Wyzant
-      details: |
-        - Private tutor on Wyzant.com specializing in computer science, computer engineering and programming languages. 
-        - Subjects include Java, Python, C, C++, Swift/Xcode, and Calculus.
 
     - role: Learning Assistant (LA)
       time: August 2017 - December 2017
@@ -153,6 +166,14 @@ projects:
     intro: >
       Below is a list of projects that I have engaged in over the years:
     assignments:
+      - title: BladeRF Delayed Feedback Reservoir
+        link: https://github.com/oshears/bladerf_dfr_accelerator
+        tagline: A reservoir computing accelerator embedded in the BladeRF software defined radio
+
+      - title: Hybrid FPGA-ASIC Delayed Feedback Reservoir
+        link: https://github.com/oshears/hybrid_dfr_system
+        tagline: A hybrid reservoir computing system leveraging FPGA and ASIC capabilities
+
       - title: Multiprocessing with Spiking Neural Networks
         link: https://oshears.github.io/assets/docs/vt_ece_5510_project_report.pdf
         tagline: A Benchmarking Evaluation of Multithreaded SNNs in BindsNET
@@ -194,7 +215,7 @@ awards:
     intro: |
       Below is a list of my accomplishments over the years.
     papers:
-      - title: Bradley Fellowship
+      - title: ECE Department Bradley Fellowship
         year: January 2020
         description: Awarded by Virginia Tech's Electrical and Computer Engineering Department
       - title: Summa Cum Laude
@@ -237,27 +258,15 @@ activities:
       - title: Student Transition Empowerment Program at George Mason University
       - title: Boys and Girls Club Robotics Volunteer
 
-# publications:
-#     title: Publications
-#     intro: |
-#       You can list your publications in this section. Lorem ipsum dolor sit
-#       amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
-#       bibendum fringilla a eu lectus.
-#     papers:
-#       - title: The Art of Computer Programming
-#         link: "#"
-#         authors: Donald E. Knuth
-#         conference: Addison-Wesley, 1968
-
-#       - title: "Genetic Programming III: Darwinian Invention &amp; Problem Solving"
-#         link: "#"
-#         authors: Koza, J.R., Andre, D., Bennett, F.H., Keane, M.A.
-#         conference: "Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1st edn. (1999)"
-
-#       - title: A syntax directed compiler for Algol 60
-#         link: "#"
-#         authors: Edgar T. Irons
-#         conference: "Comm. ACM 4 (1961), 51–55"
+publications:
+    title: Publications
+    intro: |
+      Below is a list of publications that I have written.
+    papers:
+      - title: A Hybrid FPGA-ASIC Delayed Feedback Reservoir System to Enable Spectrum Sensing/Sharing for Low Power IoT Devices ICCAD Special Session Paper
+        link: https://ieeexplore.ieee.org/abstract/document/9643536
+        authors: Osaze Shears, Kangjun Bai, Lingjia Liu, and Yang Yi
+        conference: 2021 IEEE/ACM International Conference On Computer Aided Design (ICCAD)
 
 skills:
     title: Skills &amp; Proficiency
@@ -277,6 +286,12 @@ skills:
 
       - name: C/C++
         level: 60%
+
+      - name: Unity 3D
+        level: 50%
+
+      - name: Blender
+        level: 50%
 
       - name: Adobe Illustrator/ Affinity Designer
         level: 50%
