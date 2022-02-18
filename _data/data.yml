@@ -35,7 +35,7 @@ sidebar:
 
     interests:
       - item: Tutoring
-        link: https://www.wyzant.com/Tutors/Osaze
+        link: tutoring.html
 
       - item: Game Development
         link: game_dev.html
