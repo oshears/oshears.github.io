@@ -1,5 +1,11 @@
 # Osaze Shears's Personal Website
 
+## Creating a Site with Jekyll
+https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
+
+## Testing Site Locally with Jekyll
+https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll
+
 ## Formatting the Gemfile ##
 
 A gem file should be created in the primary directory and contain the following:

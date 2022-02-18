@@ -6,3 +6,9 @@ _site/
 _data/~$timeline.xlsx
 .vscode/settings.json
 activate.fish
+
+# _site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor

@@ -8,7 +8,7 @@ sidebar:
 
     # Profile information
     name: Osaze Shears
-    tagline: Computer Engineering PhD Student
+    tagline: Computer Engineering M.S. Student
     avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
@@ -34,14 +34,22 @@ sidebar:
     #     level: Native
 
     interests:
+      - item: Tutoring
+        link: https://www.wyzant.com/Tutors/Osaze
+
+      - item: Game Development
+        link: game_dev.html
+
+      - item: 3D Modelling
+        link: 3d.html
+
       - item: My Dogs
         link: dogs.html
 
-      - item: Gaming
+      - item: Steam
         link: https://steamcommunity.com/id/epicyoze
 
-      - item: Tutoring
-        link: 
+
 
 career-profile:
     title: Career Profile
@@ -278,7 +286,7 @@ skills:
       - name: VHDL
         level: 85%
 
-      - name: Verilog/System Verilog/UVM
+      - name: Verilog/System Verilog
         level: 70%
 
       - name: Java
@@ -293,7 +301,7 @@ skills:
       - name: Blender
         level: 50%
 
-      - name: Adobe Illustrator/ Affinity Designer
+      - name: Adobe Illustrator/Affinity Designer
         level: 50%
 
       - name: Xcode/ Swift
