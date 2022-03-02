@@ -11,6 +11,8 @@ layout: default
     Here's my progress thus far!
 </p>
 
+<hr>
+
 <h2>
     Settlers of Catan Remake
 </h2>
@@ -20,7 +22,58 @@ layout: default
 
 <img src="assets/images/games/catan.PNG" alt="Settlers of Catan" class="game_image">
 
-Source code available on <a href="https://github.com/oshears/Settlers-of-Catan">GitHub</a>
+<h6>
+    Background
+</h6>
+
+<p>
+    In the beginning of 2022 I committed myself to creating one game this year in Unity. Game design has always been an innate passion of mine, but I’ve always felt too busy to actually pursue it. My excuses were that I had always used too much of my brain at work or that I had already been sitting at the computer all day and didn’t want to spend more time at the computer outside of work. However, I recently shifted my commitments and work style to a more part time structure to allow me more time to explore this passion of mine. This was one of the greatest decisions I had made because I have been quickly able to learn about the intricacies of Unity and start developing simple 3D games, as well as game assets and animations in Blender.
+</p>
+<p>
+    The first game I worked on developing was a simple video game version of Settlers of Catan. Settlers of Catan is a simple game in theory: each player rolls a dice, collects resources, and uses their collected resources to expand the reach and size of their settlements. However, what I did not anticipate was how complex one of its core features would be to implement: trading.
+</p>
+<p>
+    Trading in Settlers of Catan works when one player wants to exchange one of their resource cards with another player’s. However, these trades can vary in their complexity for a typical game of Catan. Sure, players can exchange resources one for one, but there are also cases where a player may want to exchange two resources instead of one, or other beneficent players who would like to donate resources. Both of these cases came up when initially play testing this game with a couple of friends for the first time. 
+</p>
+<p>
+    After the play test, the thought of adding these features was an intimidating one. The way in which I initially coded my game did not take into account scalability of features. This is what brought the development of my first game to an end as I could not be bothered with refactoring my code to include all of these features. However this first project was a huge milestone as I quickly learned several important foundational concepts that could now be used in future games, namely: multiplayer functionality, working with resources, accessing game objects in C# and using the Unity editor in general.
+</p>
+
+</p>Source code available on <a href="https://github.com/oshears/Settlers-of-Catan">GitHub</a>
+
+<hr>
+
+<h2>
+    Synthicate 
+</h2>
+<h4>
+    A synthwave strategy game inspired by Settlers of Catan
+</h4>
+<h5>
+    March 2022
+</h5>
+
+<h6>
+    Background
+</h6>
+
+<p>
+    After ending the development of Catan, I realized that I needed to learn more about how to efficiently design games. I first came across a video that talked about using state machines for game objects as opposed to several different variables to keep track of information. This is what initially inspired me to learn more about industry game design standards. While I haven’t finished reading the website book that inspired this video, I plan to do so soon to sharpen my design expertise. 
+</p>
+
+<p>
+    In addition to this resource, I came across a couple of videos that described how event based programming was extremely useful and should be implemented for games that intend to be scaled. This heavily inspired me since I loved the idea of streamlining my code, and this combined with my new ideas for future games inspired my next project: Synthicate. The idea for Synthicate was to remake my original Settlers of Catan clone, but with a personal twist to it. I have always been entranced by the neon lights and synthwave aesthetic that is used to characterize some futuristic environments. Moves and games that leverage these sights and sounds captivate me, and I wanted some way to bring these elements together into a game of my own. My initial plan was to remake the light bike battling of Tron Legacy in game form since I played some games in my childhood that did this very well. However, I ran into trouble when I realized I was lacking a set of critical things that really make a game unique: assets. Attempting to learn both how to fine tune the movements of the light bikes and airships in Tron seemed tedious when combined with the need to create assets for the game. Instead I decided to break down this problem by first recreating my initial game, Catan, with a cyberpunk twist to it. 
+</p>    
+
+<p>
+    This led to the beginning of development for Synthicate. Synthicate leverages the core idea for the game design as in my version of Catan but improves the code structure of the game for scalability and adds more features including sound effects, visual effects, animations, and refined menus. Using Blender I was able to make simple assets for the game and import them into Unity. I then immediately started working with Unity’s Universal Rendering Pipeline to bring in one of the main visual features of these synthwave and cyberpunk style games: bloom. 
+</p>
+
+<p>
+    While I may have overdone it with some of the bloom, it was exciting to bring in all the assets and really see their unique visual style with the added bloom effect. This will likely be an option in the menu that players can adjust. After adding in the assets and designing the hexagon territories, I start using some of the scalable coding techniques I learned in the previous videos: Unity Events, Scriptable Objects, State Based Programming, and even Prefabricated assets. All of these techniques have greatly helped me to plan out my development process. Trello has also been an interesting tool to start using to keep track of planned features, bugs and inspiration. I look forward to finishing this game in March and releasing it to steam and mobile devices.
+</p>
+
+<hr>
 
 <h1>
     Game Development Planning
