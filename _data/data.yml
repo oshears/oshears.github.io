@@ -8,7 +8,7 @@ sidebar:
 
     # Profile information
     name: Osaze Shears
-    tagline: Computer Engineering M.S. Student
+    tagline: Research Engineer at USC ISI
     avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
@@ -62,8 +62,8 @@ career-profile:
       better computer scientists and engineers to benefit the greater society. The platform he uses
       is Wyzant and has worked with Wyzant for nearly 5 years.
 
-      Osaze is currently a M.S. student at Virginia Tech conducting research under the
-      Multifunctional Integrated Circuits and Systems (MICS) lab. His research interests
+      Osaze is currently a Research Engineer working for the University of Southern California's
+      Information Sciences Institute. His research interests
       include:
         - Spiking Neural Networks
         - Hardware Acceleration
@@ -97,7 +97,14 @@ education:
           - Circuit Design
           - Data Structures
 experiences:
-    
+    - role: Senior Research Engineer
+      time: August 2020 - Present
+      company: USC Information Sciences Institute, Arlington, Virginia
+      details: |
+        - Working under the Reconfigurable Computing Group 
+        - Contributing to FPGA Security research and development
+        - Testing Xilinx FPGA devices, including Versal, UltraScale+, and Zynq
+
     - role: Graduate Research Assistant (GRA)
       time: August 2020 - Present
       company: Electrical and Computer Engineering Department, Virginia Tech, Blacksburg, Virginia
