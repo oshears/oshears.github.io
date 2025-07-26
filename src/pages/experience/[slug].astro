@@ -1,0 +1,30 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../../lib/createSlug";
+
+export async function getStaticPaths() {
+  const experiences = await getCollection("experience");
+  return experiences.map((experience) => ({
+    params: { slug: createSlug(experience.data.title, experience.slug) },
+    props: { experience },
+  }));
+}
+
+const { experience } = Astro.props;
+const { Content } = await experience.render();
+---
+
+<PostLayout
+  title={experience.data.title}
+  heroImage={experience.data.image}
+  pubDate={experience.data.startDate}
+  updatedDate={experience.data.endDate}
+>
+  <ul class="list-disc ml-4 mb-4">
+    {experience.data.bullets.map(bullet => (
+      <li>{bullet}</li>
+    ))}
+  </ul>
+  <Content />
+</PostLayout>

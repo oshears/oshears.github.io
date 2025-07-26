@@ -2,8 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
 import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug";
 
 const cv = (await getCollection("cv"))[0].data;
+const experiences = (await getCollection("experience")).sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf());
 ---
 
 <BaseLayout title={cv.title} sideBarActiveItemID="cv">
@@ -36,13 +38,19 @@ const cv = (await getCollection("cv"))[0].data;
 
   <div class="time-line-container mb-10">
     {
-      cv.experience.map(item => (
-        <TimeLineElement
-          title={item.title}
-          subtitle={item.subtitle}
-        >
-          {item.details}
-        </TimeLineElement>
+      experiences.map(item => (
+        <a href={`/experience/${createSlug(item.data.title, item.slug)}`}>
+          <TimeLineElement
+            title={item.data.title}
+            subtitle={`${item.data.startDate.toLocaleDateString()} - ${item.data.endDate ? item.data.endDate.toLocaleDateString() : 'Present'} at ${item.data.company}, ${item.data.location}`}
+          >
+            <ul class="list-disc ml-4">
+              {item.data.bullets.map(bullet => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          </TimeLineElement>
+        </a>
       ))
     }
   </div>

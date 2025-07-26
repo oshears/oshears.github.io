@@ -27,17 +27,24 @@ const storeSchema = z.object({
 export type BlogSchema = z.infer<typeof blogSchema>;
 export type StoreSchema = z.infer<typeof storeSchema>;
 
+const experienceSchema = z.object({
+    title: z.string(),
+    company: z.string(),
+    location: z.string(),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
+    bullets: z.array(z.string()),
+    image: z.string().optional(),
+});
+
+export type ExperienceSchema = z.infer<typeof experienceSchema>;
+
 const cvSchema = z.object({
     title: z.string(),
     profile: z.string(),
     education: z.array(z.object({
         title: z.string(),
         subtitle: z.string(),
-    })),
-    experience: z.array(z.object({
-        title: z.string(),
-        subtitle: z.string(),
-        details: z.string(),
     })),
     certifications: z.array(z.object({
         name: z.string(),
@@ -111,6 +118,8 @@ const notFoundCollection = defineCollection({ schema: notFoundSchema });
 const servicesCollection = defineCollection({ schema: servicesSchema });
 const projectsCollection = defineCollection({ schema: projectsSchema });
 
+const experienceCollection = defineCollection({ schema: experienceSchema });
+
 export const collections = {
     'blog': blogCollection,
     'store': storeCollection,
@@ -119,4 +128,5 @@ export const collections = {
     '404': notFoundCollection,
     'services': servicesCollection,
     'projects': projectsCollection,
+    'experience': experienceCollection,
 }
