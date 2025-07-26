@@ -1,12 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const notFound = (await getCollection("404"))[0].data;
 ---
 
-<BaseLayout title = "404: Not Found" includeSidebar={false}>
+<BaseLayout title = {notFound.title} includeSidebar={false}>
   <div class="text-center">
-    <h1 class="text-9xl font-bold mb-4">🏝</h1>
-    <h1 class="text-9xl font-bold mb-2">404</h1>
-    <h3 class="text-2xl">The page you're looking for couldn't be found.</h3>
-    <a class="btn btn-accent mt-9" href="/">Home</a>
+    <h1 class="text-9xl font-bold mb-4">{notFound.emoji}</h1>
+    <h1 class="text-9xl font-bold mb-2">{notFound.heading}</h1>
+    <h3 class="text-2xl">{notFound.subheading}</h3>
+    <a class="btn btn-accent mt-9" href={notFound.button_url}>{notFound.button_text}</a>
   </div>
 </BaseLayout>

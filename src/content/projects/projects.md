@@ -1,0 +1,30 @@
+---
+title: "Projects"
+sections:
+  - header: "Projects Header"
+    projects:
+      - title: "Demo Project 1"
+        img: "/post_img.webp"
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        url: "#"
+        badge: "NEW"
+      - title: "Demo Project 2"
+        img: "/post_img.webp"
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        url: "#"
+  - header: "Projects Header"
+    projects:
+      - title: "Demo Project 3"
+        img: "/post_img.webp"
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        url: "#"
+        badge: "FOSS"
+      - title: "Demo Project 4"
+        img: "/post_img.webp"
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        url: "#"
+      - title: "Demo Project 5"
+        img: "/post_img.webp"
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        url: "#"
+---

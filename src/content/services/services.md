@@ -1,0 +1,23 @@
+---
+title: "Services"
+header: "Services Header"
+services:
+    - title: "Service 1"
+      img: "/post_img.webp"
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      badge: "NEW"
+      url: "#"
+    - title: "Service 2"
+      img: "/post_img.webp"
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      url: "#"
+    - title: "Service 3"
+      img: "/post_img.webp"
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      url: "#"
+      badge: "NEW"
+    - title: "Service 4"
+      img: "/post_img.webp"
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      url: "#"
+---
