@@ -7,6 +7,9 @@ import createSlug from "../lib/createSlug";
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const last_posts = posts.slice(0, 3);
 
+const projects = (await getCollection("projects")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const last_projects = projects.slice(0, 3);
+
 const index = (await getCollection("index"))[0].data;
 ---
 
@@ -31,14 +34,15 @@ const index = (await getCollection("index"))[0].data;
   </div>
 
   {
-    index.projects.map(project => (
+    last_projects.map(project => (
       <>
         <HorizontalCard
-          title={project.title}
-          img={project.img}
-          desc={project.desc}
-          url={project.url}
-          badge={project.badge}
+          title={project.data.title}
+          img={project.data.heroImage}
+          desc={project.data.description}
+          url={"/projects/" + createSlug(project.data.title, project.slug)}
+          target="_self"
+          badge={project.data.badge}
         />
         <div class="divider my-0"></div>
       </>
