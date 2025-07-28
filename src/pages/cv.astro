@@ -42,7 +42,7 @@ const experiences = (await getCollection("experience")).sort((a, b) => new Date(
         <a href={`/experience/${createSlug(item.data.title, item.slug)}`}>
           <TimeLineElement
             title={item.data.title}
-            subtitle={`${item.data.startDate.toLocaleDateString()} - ${item.data.endDate ? item.data.endDate.toLocaleDateString() : 'Present'} at ${item.data.company}, ${item.data.location}`}
+            subtitle={`${new Date(item.data.startDate).toLocaleDateString()} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString() : 'Present'} at ${item.data.company}, ${item.data.location}`}
           >
             <ul class="list-disc ml-4">
               {item.data.bullets.map(bullet => (
