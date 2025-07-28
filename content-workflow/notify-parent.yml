@@ -1,0 +1,36 @@
+name: Notify Parent Repository of Content Changes
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    # Only trigger on changes to content files, not config
+    paths:
+      - 'blog/**'
+      - 'projects/**'
+      - 'experience/**'
+      - 'cv/**'
+      - 'services/**'
+      - 'store/**'
+      - 'index/**'
+      - '404/**'
+      - 'images/**'
+
+  workflow_dispatch:
+
+jobs:
+  notify-parent:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Notify parent repository
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PARENT_REPO_TOKEN }}
+          repository: oshears/oshears.github.io
+          event-type: update-submodule
+          client-payload: |
+            {
+              "repository": "${{ github.repository }}",
+              "commit": "${{ github.sha }}",
+              "ref": "${{ github.ref }}"
+            }

@@ -1,0 +1,26 @@
+name: Test Parent Repository Notification
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-notification:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Test notify parent repository
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PARENT_REPO_TOKEN }}
+          repository: oshears/oshears.github.io
+          event-type: update-submodule
+          client-payload: |
+            {
+              "repository": "${{ github.repository }}",
+              "commit": "test-commit",
+              "ref": "refs/heads/main",
+              "test": true
+            }
+      
+      - name: Success message
+        run: echo "✅ Successfully sent notification to parent repository!"

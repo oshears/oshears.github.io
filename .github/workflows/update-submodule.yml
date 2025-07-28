@@ -1,0 +1,56 @@
+name: Update Content Submodule
+
+on:
+  # Runs on a schedule to check for submodule updates
+  schedule:
+    # Check every 30 minutes for submodule updates
+    - cron: '*/30 * * * *'
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Can be triggered by webhook from the content repository
+  repository_dispatch:
+    types: [update-submodule]
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update submodules to latest
+        run: |
+          git submodule update --remote --merge
+          
+      - name: Check if submodule was updated
+        id: check_changes
+        run: |
+          if git diff --quiet HEAD; then
+            echo "No changes detected"
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in submodules"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push submodule updates
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update content submodule to latest commit"
+          git push
+
+      - name: Trigger site rebuild
+        if: steps.check_changes.outputs.changes == 'true'
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: content-updated

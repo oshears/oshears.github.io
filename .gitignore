@@ -36,4 +36,7 @@ pnpm-debug.log*
 # Astro
 .astro/
 
+# Content images copied to public directory
+public/content/
+
 .archive
