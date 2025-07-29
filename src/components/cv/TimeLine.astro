@@ -1,5 +1,5 @@
 ---
-const { title, subtitle, isLast = false } = Astro.props;
+const { title, subtitle, isLast = false, image, imageShape = "circle" } = Astro.props;
 ---
 
 <div class="flex mb-8">
@@ -7,11 +7,26 @@ const { title, subtitle, isLast = false } = Astro.props;
     <span class="w-4 h-4 bg-primary block rounded-full mt-1"></span>
     <span class="education__line bg-primary block w-[2px] translate-x-[7px]" style={isLast ? "height: 100%;" : "height: calc(100% + 2rem);"}></span>
   </div>
-  <div class="experience__data bd-grid px-5">
-    <h3 class="font-semibold mb-1">{title}</h3>
-    <span class="font-light text-sm">{subtitle}</span>
-    <p class="my-2 text-justify">
-      <slot />
-    </p>
+  <div class="experience__data bd-grid px-5 flex-1">
+    <div class="flex items-start gap-4">
+      {image ? (
+        <img 
+          src={image} 
+          alt={title}
+          class={`w-16 h-16 flex-shrink-0 ${imageShape === "square" ? "rounded-lg object-contain" : "rounded-full object-cover"}`}
+        />
+      ) : (
+        <div class={`w-16 h-16 bg-gray-200 flex-shrink-0 flex items-center justify-center text-xs ${imageShape === "square" ? "rounded-lg" : "rounded-full"}`}>
+          No img
+        </div>
+      )}
+      <div class="flex-1">
+        <h3 class="font-semibold mb-1">{title}</h3>
+        <span class="font-light text-sm">{subtitle}</span>
+        <p class="my-2 text-justify">
+          <slot />
+        </p>
+      </div>
+    </div>
   </div>
 </div>

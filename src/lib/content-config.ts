@@ -45,6 +45,7 @@ const cvSchema = z.object({
     education: z.array(z.object({
         title: z.string(),
         subtitle: z.string(),
+        image: z.string().optional(),
     })),
     // certifications: z.array(z.object({
     //     name: z.string(),

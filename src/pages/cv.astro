@@ -23,10 +23,13 @@ const experiences = (await getCollection("experience")).sort((a, b) => new Date(
 
   <div class="time-line-container grid gap-4 mb-10">
     {
-      cv.education.map(item => (
+      cv.education.map((item, index) => (
         <TimeLineElement
           title={item.title}
           subtitle={item.subtitle}
+          image={item.image}
+          isLast={index === cv.education.length - 1}
+          imageShape="square"
         />
       ))
     }
@@ -44,6 +47,7 @@ const experiences = (await getCollection("experience")).sort((a, b) => new Date(
             title={item.data.title}
             subtitle={`${new Date(item.data.startDate).toLocaleDateString()} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString() : 'Present'} at ${item.data.company}, ${item.data.location}`}
             isLast={index === experiences.length - 1}
+            image={item.data.image}
           >
             <ul class="list-disc ml-4">
               {item.data.bullets.map(bullet => (
