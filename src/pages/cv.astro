@@ -38,11 +38,12 @@ const experiences = (await getCollection("experience")).sort((a, b) => new Date(
 
   <div class="time-line-container mb-10">
     {
-      experiences.map(item => (
+      experiences.map((item, index) => (
         <a href={`/experience/${createSlug(item.data.title, item.slug)}`}>
           <TimeLineElement
             title={item.data.title}
             subtitle={`${new Date(item.data.startDate).toLocaleDateString()} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString() : 'Present'} at ${item.data.company}, ${item.data.location}`}
+            isLast={index === experiences.length - 1}
           >
             <ul class="list-disc ml-4">
               {item.data.bullets.map(bullet => (
@@ -55,7 +56,7 @@ const experiences = (await getCollection("experience")).sort((a, b) => new Date(
     }
   </div>
 
-  <div class="mb-5">
+  <!-- <div class="mb-5">
     <div class="text-3xl w-full font-bold">Certifications</div>
   </div>
 
@@ -67,16 +68,16 @@ const experiences = (await getCollection("experience")).sort((a, b) => new Date(
         </li>
       ))
     }
-  </ul>
+  </ul> -->
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Skills</div>
   </div>
 
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
+  <ul class="list-disc md:columns-3 columns-2 mx-6 gap-x-8">
     {
       cv.skills.map(item => (
-        <li>{item}</li>
+        <li class="mb-2 break-inside-avoid">{item}</li>
       ))
     }
   </ul>

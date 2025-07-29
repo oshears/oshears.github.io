@@ -46,10 +46,10 @@ const cvSchema = z.object({
         title: z.string(),
         subtitle: z.string(),
     })),
-    certifications: z.array(z.object({
-        name: z.string(),
-        url: z.string(),
-    })),
+    // certifications: z.array(z.object({
+    //     name: z.string(),
+    //     url: z.string(),
+    // })),
     skills: z.array(z.string()),
 });
 
