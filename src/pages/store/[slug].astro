@@ -3,9 +3,11 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import type { StoreSchema } from "../../lib/content-config";
 import StoreItemLayout from "../../layouts/StoreItemLayout.astro";
+import { filterDrafts } from "../../lib/content-config";
 
 export async function getStaticPaths() {
-  const itemEntries = await getCollection("store");
+  const allItemEntries = await getCollection("store");
+  const itemEntries = filterDrafts(allItemEntries);
   return itemEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

@@ -6,6 +6,7 @@ const blogSchema = z.object({
     updatedDate: z.string().optional(),
     heroImage: z.string().optional(),
     badge: z.string().optional(),
+    draft: z.boolean().optional(),
     tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
         message: 'tags must be unique',
     }).optional(),
@@ -22,6 +23,7 @@ const storeSchema = z.object({
     badge: z.string().optional(),
     checkoutUrl: z.string().optional(),
     heroImage: z.string().optional(),
+    draft: z.boolean().optional(),
 });
 
 export type BlogSchema = z.infer<typeof blogSchema>;
@@ -35,6 +37,7 @@ const experienceSchema = z.object({
     endDate: z.coerce.date().optional(),
     bullets: z.array(z.string()),
     image: z.string().optional(),
+    draft: z.boolean().optional(),
 });
 
 export type ExperienceSchema = z.infer<typeof experienceSchema>;
@@ -103,6 +106,7 @@ const projectsSchema = z.object({
     updatedDate: z.string().optional(),
     heroImage: z.string().optional(),
     badge: z.string().optional(),
+    draft: z.boolean().optional(),
     tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
         message: 'tags must be unique',
     }).optional(),
@@ -111,6 +115,22 @@ const projectsSchema = z.object({
 
 export type ProjectsSchema = z.infer<typeof projectsSchema>;
 
+const gamedevSchema = z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    updatedDate: z.string().optional(),
+    heroImage: z.string().optional(),
+    badge: z.string().optional(),
+    draft: z.boolean().optional(),
+    tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
+        message: 'tags must be unique',
+    }).optional(),
+    url: z.string().optional(),
+});
+
+export type GamedevSchema = z.infer<typeof gamedevSchema>;
+
 const blogCollection = defineCollection({ schema: blogSchema });
 const storeCollection = defineCollection({ schema: storeSchema });
 const cvCollection = defineCollection({ schema: cvSchema });
@@ -118,6 +138,7 @@ const indexCollection = defineCollection({ schema: indexSchema });
 const notFoundCollection = defineCollection({ schema: notFoundSchema });
 const servicesCollection = defineCollection({ schema: servicesSchema });
 const projectsCollection = defineCollection({ schema: projectsSchema });
+const gamedevCollection = defineCollection({ schema: gamedevSchema });
 
 const experienceCollection = defineCollection({ schema: experienceSchema });
 
@@ -129,5 +150,11 @@ export const collections = {
     '404': notFoundCollection,
     'services': servicesCollection,
     'projects': projectsCollection,
+    'gamedev': gamedevCollection,
     'experience': experienceCollection,
+}
+
+// Helper function to filter out draft content
+export function filterDrafts<T extends { data: { draft?: boolean } }>(entries: T[]): T[] {
+    return entries.filter(entry => !entry.data.draft);
 }

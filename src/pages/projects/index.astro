@@ -3,8 +3,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HorizontalCard from "../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../../lib/createSlug";
+import { filterDrafts } from "../../lib/content-config";
 
-const projects = (await getCollection("projects")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allProjects = await getCollection("projects");
+const projects = filterDrafts(allProjects).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout sideBarActiveItemID="projects">

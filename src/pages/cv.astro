@@ -3,19 +3,21 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
+import { filterDrafts } from "../lib/content-config";
 
 const cv = (await getCollection("cv"))[0].data;
-const experiences = (await getCollection("experience")).sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf());
+const allExperiences = await getCollection("experience");
+const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf());
 ---
 
 <BaseLayout title={cv.title} sideBarActiveItemID="cv">
-  <div class="mb-5">
+  <!-- <div class="mb-5">
     <div class="text-3xl w-full font-bold">Profile</div>
-  </div>
+  </div> -->
 
-  <div class="mb-10 text-justify">
+  <!-- <div class="mb-10 text-justify">
     {cv.profile}
-  </div>
+  </div> -->
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Education</div>

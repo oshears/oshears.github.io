@@ -2,9 +2,11 @@
 import PostLayout from "../../layouts/PostLayout.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../../lib/createSlug";
+import { filterDrafts } from "../../lib/content-config";
 
 export async function getStaticPaths() {
-  const experiences = await getCollection("experience");
+  const allExperiences = await getCollection("experience");
+  const experiences = filterDrafts(allExperiences);
   return experiences.map((experience) => ({
     params: { slug: createSlug(experience.data.title, experience.slug) },
     props: { experience },

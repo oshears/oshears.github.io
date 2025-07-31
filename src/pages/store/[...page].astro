@@ -2,13 +2,27 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HorizontalShopItem from "../../components/HorizontalShopItem.astro";
 import { getCollection } from "astro:content";
+import { filterDrafts } from "../../lib/content-config";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
-  const items = await getCollection("store");
+  const allItems = await getCollection("store");
+  const items = filterDrafts(allItems);
   items.sort((a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf());
   return paginate(items, { pageSize: 10 });
 }
-const { page } = Astro.props;
+
+interface Props {
+  page: {
+    data: CollectionEntry<"store">[];
+    url: {
+      prev?: string;
+      next?: string;
+    };
+  };
+}
+
+const { page }: Props = Astro.props;
 ---
 
 <BaseLayout title="Store" sideBarActiveItemID="store">

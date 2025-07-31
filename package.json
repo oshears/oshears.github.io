@@ -18,9 +18,13 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.1",
     "@astrojs/tailwind": "^5.0.3",
+    "@iconify-json/heroicons": "^1.2.2",
+    "@iconify-json/lucide": "^1.2.59",
     "astro": "^4.0.2",
+    "astro-icon": "^1.1.5",
     "daisyui": "^4.4.10",
     "dayjs": "^1.11.9",
+    "lucide-astro": "^0.534.0",
     "sharp": "^0.32.6",
     "tailwindcss": "^3.3.5"
   },

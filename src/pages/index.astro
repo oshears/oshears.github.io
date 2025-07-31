@@ -3,11 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
+import { filterDrafts } from "../lib/content-config";
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allPosts = await getCollection("blog");
+const posts = filterDrafts(allPosts).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const last_posts = posts.slice(0, 3);
 
-const projects = (await getCollection("projects")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allProjects = await getCollection("projects");
+const projects = filterDrafts(allProjects).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const last_projects = projects.slice(0, 3);
 
 const indexContent = (await getCollection("index"))[0];
@@ -18,7 +21,7 @@ const { Content } = await indexContent.render();
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">{index.greeting}</div>
+    <!-- <div class="text-xl py-1">{index.greeting}</div> -->
     <div class="text-5xl font-bold">{index.name}</div>
     <div class="text-3xl py-3 font-bold">{index.title}</div>
     <div class="py-2">
@@ -40,29 +43,29 @@ const { Content } = await indexContent.render();
       
       <div class="text-center">
         <div class="w-48 h-48 rounded-full bg-gray-200 overflow-hidden mx-auto mb-3 border-4 border-gray-300">
-          <img src="/rafting.jpg" alt="Me exploring a national park" class="w-full h-full object-cover" />
+          <img src="/rafting.jpg" alt="My friends and I went white water rafting at New River Gorge National Park" class="w-full h-full object-cover" />
         </div>
-        <p class="text-sm font-medium text-gray-700">Exploring Nature</p>
+        <!-- <p class="text-sm font-medium text-gray-700">Outdoor Adventures</p> -->
       </div>
 
       <div class="text-center">
         <div class="w-48 h-48 rounded-full bg-gray-200 overflow-hidden mx-auto mb-3 border-4 border-gray-300">
-          <img src="/ommg.jpg" alt="Me with my dogs" class="w-full h-full object-cover" />
+          <img src="/ommg.jpg" alt="Osaze and Gia with Matcha and Mango" class="w-full h-full object-cover" />
         </div>
-        <p class="text-sm font-medium text-gray-700">With My Dogs</p>
+        <!-- <p class="text-sm font-medium text-gray-700">Matcha and Mango</p> -->
       </div>
       
       <div class="text-center">
         <div class="w-48 h-48 rounded-full bg-gray-200 overflow-hidden mx-auto mb-3 border-4 border-gray-300">
-          <img src="/osaze_desk.jpg" alt="Me at work" class="w-full h-full object-cover" />
+          <img src="/osaze_desk.jpg" alt="Osaze at work" class="w-full h-full object-cover" />
         </div>
-        <p class="text-sm font-medium text-gray-700">At Work</p>
+        <!-- <p class="text-sm font-medium text-gray-700">At Work</p> -->
       </div>
       
     </div>
   </div>
 
-  <div>
+  <!-- <div>
     <div class="text-3xl w-full font-bold mb-2">{index.projects_title} {"</>"}</div>
   </div>
 
@@ -100,5 +103,5 @@ const { Content } = await indexContent.render();
         <div class="divider my-0" />
       </>
     ))
-  }
+  } -->
 </BaseLayout>
