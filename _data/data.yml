@@ -98,45 +98,37 @@ education:
           - Data Structures
 experiences:
     - role: Senior Research Engineer
-      time: August 2020 - Present
+      time: May 2022 - Present
       company: USC Information Sciences Institute, Arlington, Virginia
       details: |
-        - Working under the Reconfigurable Computing Group 
-        - Contributing to FPGA Security research and development
-        - Testing Xilinx FPGA devices, including Versal, UltraScale+, and Zynq
+        - Architected and integrated a top-level SoC design using SystemVerilog with JTAG, PLL, SerDes, and custom IP for a homomorphic encryption ASIC. Interfaced memory-mapped control-status registers with AXI4Lite interconnect for external FPGA access.
+        - Developed comprehensive FPGA test platforms using Vivado and Vitis across Xilinx Versal, UltraScale+, and Series 7 devices to validate functionality of slices, interconnect, and hard IP blocks. C code developed for MicroBlaze to enable run-time testing.
+        - Developed codebase for automating EDA tool build processes and FPGA debugging using Python and TCL. Maintained codebase using GitLab CI/CD flows, merge requests, and issue tracking.
+        - Implemented and optimized MobileNet accelerator on Zynq ZCU104 using Xilinx FINN framework, Python, Xilinx HLS, and C. Worked towards energy efficiency and latency improvements for object detection and tracking with the BDD100K dataset.
+        - Performed functional verification and debugging of NoC-based ASIC architectures using Xcelium and emulations on VCU128.
+        - Collaborated with interns to bring-up a Synopsys HAPS-100 prototyping platform for emulation of ASIC designs.
+        - Maintained GitLab Wiki repositories to document workflows, facilitate knowledge sharing, and host project documentation.
 
-    - role: Graduate Research Assistant (GRA)
-      time: August 2020 - Present
+    - role: Graduate Research and Teching Assistant
+      time: August 2020 - May 2022
       company: Electrical and Computer Engineering Department, Virginia Tech, Blacksburg, Virginia
       details: |
-        - Researching under the Multifunctional Integrated Circuits and Systems (MICS) Lab 
-        - Studying neuromorphic computing implementations on digital integrated circuits
-        - Collaborating with other graduate students to develop next generation machine learning hardware leveraging neuromorphic computing
-        - Mentoring a team of 4 undergraduate students in researching digital neuromorphic computing, machine learning, and reservoir computing
-
-    - role: Private Tutor
-      time: May 2017 - Present
-      company: Wyzant
-      details: |
-        - Private tutor on Wyzant.com specializing in computer science, computer engineering and programming languages. 
-        - Subjects include Verilog, VHDL, Java, Python, C, C++, Swift/Xcode, and Calculus
-        - Computer science and engineering tutoring available at: https://www.wyzant.com/Tutors/Osaze
-
-    - role: Graduate Teaching Assistant (GTA)
-      time: August 2020 - May 2021
-      company: Electrical and Computer Engineering Department, Virginia Tech, Blacksburg, Virginia
-      details: |
-        - Provided weekly office hours and remote support for students in ECE 2514: Computational Engineering
-        - Provided grading and logistical support for ECE 2514: Computational Engineering
+        - Implemented Zynq-7000 FPGA based interface in Vivado and Verilog for an analog neuromorphic image classifier ASIC. The design leveraged the embedded ARM processor, an external DAC, the internal ADC, and custom AXI IP.
+        - Developed bare-metal C applications to run on Zynq-7000 ARM processor for reading and writing data to the analog ASIC interface.
+        - Configured a PetaLinux image and device tree for AXI memory-mapped custom IP addressing from Linux running on the ARM CPU. Created Python scripts to streamline IP configuration and evaluation of the neuromorphic ASIC within the embedded OS.
+        - Used TCL scripts to automate Vivado's FPGA block design and bitstream generation for reproducibility and continuous integration of the neuromorphic ASIC interface architecture. Maintained a GitHub repository for version control and collaboration.
+        - Designed a recurrent neural network accelerator IP using C++ and Intel HLS Compiler for the BladeRF software defined radio. Performed verification using ModelSim co-simulation, and implemented a bitstream generated for the on-board Cyclone V FPGA.
+        - Led and instructed a team of 4 undergraduate students in FPGA machine learning accelerator design. Provided weekly lectures, facilitated technical discussions, and advised undergraduate research projects for 3 semesters.
+        - Conducted research analyzing firmware and hardware vulnerabilities (CVEs) in the NIST National Vulnerability Database for Colvin Run Networks' supply chain risk assessment tool - Copia.
 
     - role: Digital Logic Design Engineer
       time: May 2018 - July 2020
       company: BAE Systems Inc., Manassas, Virginia
       details: |
-        - Created various UVM test sequences for verifying several protocols on ASICs (PCI, JTAG, I2C)
-        - Constructed several scripts to automate memory built-in self-test (MBIST) operations and fuse repairs 
-        - Performed design for test pattern generation and bring-up tasks on the RAD5545 single-board computer
-        - Mentored a team of interns in programming software to perform memory test and repair tasks
+        - Developed and maintained SystemVerilog/UVM testbenches for functional verification of 10+ critical IP cores on production SoCs, including PCI, I2C, UART, and SPI interfaces.
+        - Created a Perl framework for generating wafer-level and package-level manufacturing test patterns for SerDes and MBIST IP validation on RAD5545 SoCs, ensuring production-quality hardware functionality.
+        - Collaborated with interns in the development of memory test and repair sequences for SoCs using C++ and JTAG Corelis boundary scan hardware. Used on-chip fuses to enable redundant memory columns and repair memory faults for several devices.
+        - Presented automated MBIST test insertion methodology research to the Virginia Microelectronics Consortium (VMEC), demonstrating innovation in test automation. 
         - Served in the onsite Young Professionals and Health & Wellness committees
     
     - role: Virginia Microelectronics Consortium (VMEC) Intern
@@ -145,6 +137,14 @@ experiences:
       details: |
         - Experience documenting and integrating memory built-in self-test (MBIST) systems written in Verilog and VHDL
         - Experience modifying and simulating Universal Verification Methodology (UVM) Test Benches
+
+    - role: Private Tutor
+      time: May 2017 - 2022
+      company: Wyzant
+      details: |
+        - Private tutor on Wyzant.com specializing in computer science, computer engineering and programming languages. 
+        - Subjects include Verilog, VHDL, Java, Python, C, C++, Swift/Xcode, and Calculus
+        - Computer science and engineering tutoring available at: https://www.wyzant.com/Tutors/Osaze
 
     - role: Learning Assistant (LA)
       time: August 2017 - December 2017
