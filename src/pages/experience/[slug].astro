@@ -1,5 +1,5 @@
 ---
-import PostLayout from "../../layouts/PostLayout.astro";
+import ExperienceLayout from "../../layouts/ExperienceLayout.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../../lib/createSlug";
 import { filterDrafts } from "../../lib/content-config";
@@ -17,11 +17,14 @@ const { experience } = Astro.props;
 const { Content } = await experience.render();
 ---
 
-<PostLayout
+<ExperienceLayout
   title={experience.data.title}
-  heroImage={experience.data.image}
-  pubDate={experience.data.startDate}
-  updatedDate={experience.data.endDate}
+  company={experience.data.company}
+  location={experience.data.location}
+  startDate={experience.data.startDate}
+  endDate={experience.data.endDate}
+  image={experience.data.image}
+  bullets={experience.data.bullets}
 >
   <ul class="list-disc ml-4 mb-4">
     {experience.data.bullets.map(bullet => (
@@ -29,4 +32,4 @@ const { Content } = await experience.render();
     ))}
   </ul>
   <Content />
-</PostLayout>
+</ExperienceLayout>
