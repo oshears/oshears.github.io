@@ -12,7 +12,7 @@ sidebar:
     avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
-    email: oshears@vt.edu
+    email: oyshears@gmail.com
     phone: (757) 508-2757
     website: oshears.github.io #do not add http://
     linkedin: osazeshears
@@ -278,6 +278,10 @@ publications:
     intro: |
       Below is a list of publications that I have written.
     papers:
+      - title: FPGA Reservoir Computing Networks for Dynamic Spectrum Sensing
+        link: https://vtechworks.lib.vt.edu/items/9c1ea54d-fcea-47b8-8307-95e0f0ab820a
+        authors: Osaze Shears
+        conference: Virginia Tech
       - title: A Hybrid FPGA-ASIC Delayed Feedback Reservoir System to Enable Spectrum Sensing/Sharing for Low Power IoT Devices ICCAD Special Session Paper
         link: https://ieeexplore.ieee.org/abstract/document/9643536
         authors: Osaze Shears, Kangjun Bai, Lingjia Liu, and Yang Yi
