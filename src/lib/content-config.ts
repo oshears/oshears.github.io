@@ -55,6 +55,11 @@ const cvSchema = z.object({
     //     url: z.string(),
     // })),
     skills: z.array(z.string()),
+    awards: z.array(z.object({
+        title: z.string(),
+        year: z.string(),
+        description: z.string(),
+    })),
 });
 
 export type CvSchema = z.infer<typeof cvSchema>;

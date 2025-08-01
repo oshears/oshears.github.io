@@ -7,20 +7,16 @@ const activeClass = "bg-base-300"; // For primary color replace with `active` cl
 <ul class="menu grow shrink menu-md overflow-y-auto">
     <li>
         <a class="py-3 text-base flex items-center gap-3" id="home" href="/">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: currentColor;">
-                <path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z"></path>
-            </svg>
+            <Icon name="lucide:home" class="w-5 h-5" />
             Home
         </a>
     </li>
-    <li>
+    <!-- <li>
         <a class="py-3 text-base flex items-center gap-3" id="cv" href="/cv">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: currentColor;">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"></path>
-            </svg>
+            <Icon name="lucide:user" class="w-5 h-5" />
             CV
         </a>
-    </li>
+    </li> -->
     <!-- <li>
         <a class="py-3 text-base flex items-center gap-3" id="projects" href="/projects">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: currentColor;">
@@ -41,9 +37,7 @@ const activeClass = "bg-base-300"; // For primary color replace with `active` cl
     </li> -->
     <li>
         <a class="py-3 text-base flex items-center gap-3" id="contact" href="/contact">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: currentColor;">
-                <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.223V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
-            </svg>
+            <Icon name="lucide:mail" class="w-5 h-5" />
             Contact
         </a>
     </li>

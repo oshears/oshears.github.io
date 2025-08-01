@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
 import { filterDrafts } from "../lib/content-config";
@@ -15,6 +16,11 @@ const last_projects = projects.slice(0, 3);
 
 const indexContent = (await getCollection("index"))[0];
 const index = indexContent.data;
+
+// Get CV data
+const cv = (await getCollection("cv"))[0].data;
+const allExperiences = await getCollection("experience");
+const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf());
 
 const { Content } = await indexContent.render();
 ---
@@ -63,6 +69,80 @@ const { Content } = await indexContent.render();
       </div>
       
     </div>
+  </div>
+
+  <!-- CV Sections -->
+  <!-- Education Section -->
+  <div class="mb-8">
+    <div class="text-3xl w-full font-bold mb-5">Education</div>
+    <div class="time-line-container grid gap-4 mb-10">
+      {
+        cv.education.map((item, index) => (
+          <TimeLineElement
+            title={item.title}
+            subtitle={item.subtitle}
+            image={item.image}
+            isLast={index === cv.education.length - 1}
+            imageShape="square"
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Experience Section -->
+  <div class="mb-8">
+    <div class="text-3xl w-full font-bold mb-5">Experience</div>
+    <div class="time-line-container mb-10">
+      {
+        experiences.map((item, index) => (
+          <a href={`/experience/${createSlug(item.data.title, item.slug)}`}>
+            <TimeLineElement
+              title={item.data.title}
+              subtitle={`${new Date(item.data.startDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 'Present'} at ${item.data.company}, ${item.data.location}`}
+              isLast={index === experiences.length - 1}
+              image={item.data.image}
+            >
+              <ul class="list-disc ml-4">
+                {item.data.bullets.map(bullet => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </TimeLineElement>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="mb-8">
+    <div class="text-3xl w-full font-bold mb-5">Skills</div>
+    <ul class="list-disc md:columns-3 columns-2 mx-6 gap-x-8 mb-10">
+      {
+        cv.skills.map(item => (
+          <li class="mb-2 break-inside-avoid">{item}</li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Awards Section -->
+  <div class="mb-8">
+    <div class="text-3xl w-full font-bold mb-5">Awards</div>
+    <ul class="list-disc md:columns-2 columns-2 mx-6 gap-x-8 mb-10">
+      {
+        cv.awards.map(item => (
+          <li class="mb-2 break-inside-avoid">
+            <div>
+              <strong>{item.title}</strong><br />
+              {item.year}<br />
+              <em>{item.description}</em>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 
   <!-- <div>

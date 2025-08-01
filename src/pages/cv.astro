@@ -87,4 +87,38 @@ const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.
       ))
     }
   </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Awards</div>
+  </div>
+
+  <ul class="list-disc md:columns-2 columns-2 mx-6 gap-x-8">
+    {
+      cv.awards.map(item => (
+        <li class="mb-2 break-inside-avoid">
+          <div>
+            <strong>{item.title}</strong><br />
+            {item.year}<br />
+            <em>{item.description}</em>
+          </div>
+          
+        </li>
+        // <li class="mb-2 break-inside-avoid">{item.year}</li>
+      ))
+    }
+  </ul>
+
+  <!-- <div class="time-line-container grid gap-4 mb-10">
+    {
+      cv.education.map((item, index) => (
+        <TimeLineElement
+          title={item.title}
+          subtitle={item.subtitle}
+          image={item.image}
+          isLast={index === cv.education.length - 1}
+          imageShape="square"
+        />
+      ))
+    }
+  </div> -->
 </BaseLayout>
