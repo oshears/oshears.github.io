@@ -26,7 +26,8 @@
     "dayjs": "^1.11.9",
     "lucide-astro": "^0.534.0",
     "sharp": "^0.32.6",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.5",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10"

@@ -287,3 +287,9 @@ Astrofy is licensed under the MIT license — see the [LICENSE](https://github.c
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).
+
+# OYS Notes
+
+```
+npm start
+```
