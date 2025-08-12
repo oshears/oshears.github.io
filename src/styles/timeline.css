@@ -1,0 +1,39 @@
+/* Timeline link hover styles */
+.timeline-link {
+    display: block;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.timeline-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 2px solid var(--color-primary);
+}
+
+.timeline-link:hover::before {
+    transform: translateX(0);
+}
+
+.timeline-link:hover .font-semibold {
+    color: var(--color-primary);
+}

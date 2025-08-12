@@ -1,0 +1,15 @@
+/* Custom CSS variables for timeline colors */
+:root {
+  --color-primary-rgb: 0, 149, 237; /* Adjust these values to match your primary blue */
+}
+
+.timeline-hover-effect {
+  transition: all 0.3s ease-in-out;
+}
+
+.timeline-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(var(--color-primary-rgb), 0.15), 0 4px 6px -2px rgba(var(--color-primary-rgb), 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+  border-left-color: var(--color-primary);
+}

@@ -39,17 +39,19 @@ const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Experience</div>
+    <div class="text-sm text-gray-500 italic">(Hover over items to see interactive effect)</div>
   </div>
 
   <div class="time-line-container mb-10">
     {
       experiences.map((item, index) => (
-        <a href={`/experience/${createSlug(item.data.title, item.slug)}`}>
+        <a href={`/experience/${createSlug(item.data.title, item.id)}`}>
           <TimeLineElement
             title={item.data.title}
             subtitle={`${new Date(item.data.startDate).toLocaleDateString()} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString() : 'Present'} at ${item.data.company}, ${item.data.location}`}
             isLast={index === experiences.length - 1}
             image={item.data.image}
+            isLink={true}
           >
             <ul class="list-disc ml-4">
               {item.data.bullets.map(bullet => (

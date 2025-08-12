@@ -6,6 +6,9 @@ import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
 import { filterDrafts } from "../lib/content-config";
 
+import MarkdownIt from "markdown-it";
+const md = new MarkdownIt({ html: true, breaks: true });
+
 const allPosts = await getCollection("blog");
 const posts = filterDrafts(allPosts).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const last_posts = posts.slice(0, 3);
@@ -17,10 +20,91 @@ const last_projects = projects.slice(0, 3);
 const indexContent = (await getCollection("index"))[0];
 const index = indexContent.data;
 
+
+
 // Get CV data
 const cv = (await getCollection("cv"))[0].data;
+
+
+
+
+// Get education entries from education folder
+const allEducation = await getCollection("education");
+const educationEntries = allEducation
+  .sort((a, b) => a.data.subtitle.localeCompare(b.data.subtitle)) // or custom sort if needed
+  .map(item => {
+    const mdBody = item.body || '';
+    const htmlBody = md.render(mdBody);
+    
+    // Extract bullet points directly
+    const bullets = mdBody.split('\n')
+      .filter(line => line.trim().startsWith('-'))
+      .map(line => line.substring(line.indexOf('-') + 1).trim());
+    
+    // Extract school and location from subtitle
+    const subtitleParts = item.data.subtitle.split(" at ");
+    const dateRange = subtitleParts[0];
+    const schoolLocation = subtitleParts[1];
+    
+    return { 
+      ...item.data, 
+      htmlBody, 
+      bullets, 
+      image: item.data.image,
+      dateRange,
+      schoolLocation
+    };
+  });
+
+// Get service/community engagement markdown
+const serviceProjects = (await getCollection("service")).find(item => item.id === "service-projects");
+const serviceHtml = serviceProjects ? md.render(serviceProjects.body || "") : "";
+// Extract bullet points from service markdown for direct rendering
+const serviceBullets = serviceProjects ? 
+  (serviceProjects.body || "")
+    .split('\n')
+    .filter(line => line.trim().startsWith('-'))
+    .map(line => line.substring(line.indexOf('-') + 1).trim())
+  : [];
+
+// Hard-coded service bullet points as a fallback
+const hardcodedServiceBullets = [
+  "Led and instructed a team of 4 undergraduate Virginia Tech students in FPGA machine learning accelerator design. Provided weekly lectures, facilitated technical discussions, and advised undergraduate research projects for 3 semesters.",
+  "Organized New River Valley Game Dev Meetup, fostering networking opportunities and collaboration among local developers.",
+  "Collaborated with domestic and international developers to create multiplayer games in Unity3D for PC and handheld devices.",
+  "Led wellness events for BAE Systems employees including hikes, soccer tournaments, and outdoor excursions.",
+  "Provided tutoring for undergraduate students in programming, digital logic design, and embedded systems courses.",
+];
+
 const allExperiences = await getCollection("experience");
-const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf());
+const extractFirstBullets = (markdown) => {
+  // Match the first bullet list (lines starting with - or *)
+  const lines = markdown.split('\n');
+  let bullets = [];
+  let inList = false;
+  for (const line of lines) {
+    if (/^\s*[-*] /.test(line)) {
+      if (!inList) inList = true;
+      bullets.push(line.replace(/^\s*[-*] /, ''));
+    } else if (inList && line.trim() === '') {
+      // End of the first list
+      break;
+    } else if (inList) {
+      // End of the first list if a non-list line is found
+      break;
+    }
+  }
+  return bullets;
+};
+
+const experiences = filterDrafts(allExperiences)
+  .sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf())
+  .map(item => {
+    const markdown = item.body || '';
+    // Convert each bullet from markdown to HTML
+    const bullets = extractFirstBullets(markdown).map(bullet => md.renderInline(bullet));
+    return { ...item, bullets, slug: item.slug };
+});
 
 const { Content } = await indexContent.render();
 ---
@@ -77,14 +161,22 @@ const { Content } = await indexContent.render();
     <div class="text-3xl w-full font-bold mb-5">Education</div>
     <div class="time-line-container grid gap-4 mb-10">
       {
-        cv.education.map((item, index) => (
+        educationEntries.map((item, index) => (
           <TimeLineElement
             title={item.title}
-            subtitle={item.subtitle}
+            subtitle={`${item.schoolLocation}\n${item.dateRange}`}
             image={item.image}
-            isLast={index === cv.education.length - 1}
+            isLast={index === educationEntries.length - 1}
             imageShape="square"
-          />
+          >
+            {item.bullets && item.bullets.length > 0 && (
+              <ul style="list-style-type: disc; margin-left: 0.75em;">
+                {item.bullets.map(bullet => (
+                  <li style="display: list-item; margin-bottom: 0.5em;">{bullet}</li>
+                ))}
+              </ul>
+            )}
+          </TimeLineElement>
         ))
       }
     </div>
@@ -96,18 +188,21 @@ const { Content } = await indexContent.render();
     <div class="time-line-container mb-10">
       {
         experiences.map((item, index) => (
-          <a href={`/experience/${createSlug(item.data.title, item.slug)}`}>
+          <a href={`/experience/${createSlug(item.data.title, item.id)}`}>
             <TimeLineElement
               title={item.data.title}
-              subtitle={`${new Date(item.data.startDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 'Present'} at ${item.data.company}, ${item.data.location}`}
+              subtitle={`${item.data.company}, ${item.data.location}\n${new Date(item.data.startDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 'Present'}`}
               isLast={index === experiences.length - 1}
               image={item.data.image}
+              isLink={true}
             >
-              <ul class="list-disc ml-4">
-                {item.data.bullets.map(bullet => (
-                  <li>{bullet}</li>
-                ))}
-              </ul>
+              {item.bullets.length > 0 && (
+                <ul class="list-disc ml-4">
+                  {item.bullets.map(bullet => (
+                      <li set:html={bullet}></li>
+                  ))}
+                </ul>
+              )}
             </TimeLineElement>
           </a>
         ))
@@ -145,43 +240,62 @@ const { Content } = await indexContent.render();
     </ul>
   </div>
 
-  <!-- <div>
-    <div class="text-3xl w-full font-bold mb-2">{index.projects_title} {"</>"}</div>
+</div>
+
+
+
+<!-- Service & Community Engagement Section -->
+<div class="mb-8">
+  <div class="text-3xl w-full font-bold mb-5">Service & Community Engagement</div>
+  <div class="mx-4 mb-10">
+    <!-- Using hardcoded bullet points with reduced indentation -->
+    <ul style="list-style-type: disc; margin-left: 0.5em;">
+      {hardcodedServiceBullets.map(bullet => (
+        <li style="display: list-item; margin-bottom: 0.5em;">{bullet}</li>
+      ))}
+    </ul>
   </div>
+</div>
 
-  {
-    last_projects.map(project => (
-      <>
-        <HorizontalCard
-          title={project.data.title}
-          img={project.data.heroImage}
-          desc={project.data.description}
-          url={"/projects/" + createSlug(project.data.title, project.slug)}
-          target="_self"
-          badge={project.data.badge}
-        />
-        <div class="divider my-0"></div>
-      </>
-    ))
-  }
+<!--
+<div>
+  <div class="text-3xl w-full font-bold mb-2">{index.projects_title} {"</>"}</div>
+</div>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">{index.blog_title}</div>
-  </div>
+{
+  last_projects.map(project => (
+    <>
+      <HorizontalCard
+        title={project.data.title}
+        img={project.data.heroImage}
+        desc={project.data.description}
+        url={"/projects/" + createSlug(project.data.title, project.slug)}
+        target="_self"
+        badge={project.data.badge}
+      />
+      <div class="divider my-0"></div>
+    </>
+  ))
+}
 
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  } -->
+<div>
+  <div class="text-3xl w-full font-bold mb-5 mt-10">{index.blog_title}</div>
+</div>
+
+{
+  last_posts.map((post) => (
+    <>
+      <HorizontalCard
+        title={post.data.title}
+        img={post.data.heroImage}
+        desc={post.data.description}
+        url={"/blog/" + createSlug(post.data.title, post.slug)}
+        target="_self"
+        badge={post.data.badge}
+      />
+      <div class="divider my-0" />
+    </>
+  ))
+}
+-->
 </BaseLayout>

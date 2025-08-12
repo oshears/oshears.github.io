@@ -1,8 +1,8 @@
 ---
-const { title, subtitle, isLast = false, image, imageShape = "circle" } = Astro.props;
+const { title, subtitle, isLast = false, image, imageShape = "circle", isLink = false } = Astro.props;
 ---
 
-<div class="flex mb-8">
+<div class={`flex mb-8 ${isLink ? 'timeline-hover-effect border-l-4 border-transparent rounded-lg p-3 cursor-pointer' : ''}`}>
   <div class="education__time">
     <span class="w-4 h-4 bg-primary block rounded-full mt-1"></span>
     <span class="education__line bg-primary block w-[2px] translate-x-[7px]" style={isLast ? "height: 100%;" : "height: calc(100% + 2rem);"}></span>
@@ -21,8 +21,17 @@ const { title, subtitle, isLast = false, image, imageShape = "circle" } = Astro.
         </div>
       )}
       <div class="flex-1">
-        <h3 class="font-semibold mb-1">{title}</h3>
-        <span class="font-light text-sm">{subtitle}</span>
+        <!-- <h1 class="font-semibold mb-1">{title}</h1> -->
+        <!-- <h1 class="font-semibold text-2xl mb-1">{title}</h1> -->
+        <h1 class={`font-semibold text-[1.175rem] mb-1 ${isLink ? 'group-hover:text-primary' : ''}`}>{title}</h1>
+        {subtitle.includes('\n') ? (
+          <div>
+            <div class="font-semibold text-[1rem] mb-1">{subtitle.split('\n')[0]}</div>
+            <div class="text-[0.9rem] text-gray-600">{subtitle.split('\n')[1]}</div>
+          </div>
+        ) : (
+          <span class="font-semibold text-[1rem] mb-1">{subtitle}</span>
+        )}
         <p class="my-2 text-justify">
           <slot />
         </p>
@@ -30,3 +39,19 @@ const { title, subtitle, isLast = false, image, imageShape = "circle" } = Astro.
     </div>
   </div>
 </div>
+
+<style>
+  /* Add any additional styles here */
+  .hover\:translate-y-\[-5px\]:hover {
+    transform: translateY(-5px);
+  }
+  .hover\:shadow-primary:hover {
+    box-shadow: 0 10px 15px -3px rgba(var(--color-primary-rgb, 0, 149, 237), 0.15), 0 4px 6px -2px rgba(var(--color-primary-rgb, 0, 149, 237), 0.1);
+  }
+  .hover\:bg-primary\/5:hover {
+    background-color: rgba(var(--color-primary-rgb, 0, 149, 237), 0.05);
+  }
+  .hover\:border-primary:hover {
+    border-color: var(--color-primary);
+  }
+</style>

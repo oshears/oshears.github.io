@@ -15,6 +15,26 @@ export async function getStaticPaths() {
 
 const { experience } = Astro.props;
 const { Content } = await experience.render();
+
+// Extract the first bullet list from the markdown body
+const extractFirstBullets = (markdown) => {
+  const lines = markdown.split('\n');
+  let bullets = [];
+  let inList = false;
+  for (const line of lines) {
+    if (/^\s*[-*] /.test(line)) {
+      if (!inList) inList = true;
+      bullets.push(line.replace(/^\s*[-*] /, ''));
+    } else if (inList && line.trim() === '') {
+      break;
+    } else if (inList) {
+      break;
+    }
+  }
+  return bullets;
+};
+const markdown = experience.body || '';
+const bullets = extractFirstBullets(markdown);
 ---
 
 <ExperienceLayout
@@ -24,12 +44,13 @@ const { Content } = await experience.render();
   startDate={experience.data.startDate}
   endDate={experience.data.endDate}
   image={experience.data.image}
-  bullets={experience.data.bullets}
 >
-  <ul class="list-disc ml-4 mb-4">
-    {experience.data.bullets.map(bullet => (
-      <li>{bullet}</li>
-    ))}
-  </ul>
+  <!-- {bullets.length > 0 && (
+    <ul class="list-disc ml-4 mb-4">
+      {bullets.map(bullet => (
+        <li set:html={bullet}></li>
+      ))}
+    </ul>
+  )} -->
   <Content />
 </ExperienceLayout>

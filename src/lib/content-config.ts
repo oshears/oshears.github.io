@@ -1,3 +1,11 @@
+const educationSchema = z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    image: z.string().optional(),
+});
+
+export type EducationSchema = z.infer<typeof educationSchema>;
+const educationCollection = defineCollection({ schema: educationSchema });
 import { z, defineCollection } from "astro:content";
 const blogSchema = z.object({
     title: z.string(),
@@ -157,6 +165,7 @@ export const collections = {
     'projects': projectsCollection,
     'gamedev': gamedevCollection,
     'experience': experienceCollection,
+    'education': educationCollection,
 }
 
 // Helper function to filter out draft content

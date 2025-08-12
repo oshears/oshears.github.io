@@ -1,5 +1,111 @@
+/* Fallback: Ensure bullets always show in .prose sections */
+.prose ul, .prose ol {
+  list-style: disc outside !important;
+  margin-left: 0.75em !important;
+  padding-left: 0.5em !important;
+}
+.prose li {
+  display: list-item !important;
+  list-style-type: disc !important;
+  margin-bottom: 0.5em;
+}
+/* Ensure bullets are visible in .prose sections */
+.prose ul {
+  list-style-type: disc !important;
+  margin-left: 0.75em !important;
+  padding-left: 0.5em !important;
+}
+.prose li {
+  display: list-item !important;
+  list-style-type: disc !important;
+}
+/* Override prose text color to match the rest of the site */
+.prose {
+  color: inherit !important;
+}
+.prose * {
+  color: inherit !important;
+}
+/* Specifically target list items and bullets in prose */
+.prose ul li::before,
+.prose ol li::before,
+.prose ul li::marker,
+.prose ol li::marker {
+  color: inherit !important;
+  opacity: 1 !important;
+}
+
+/* Custom dark bullet class */
+.dark-bullets ul {
+  list-style-type: disc;
+}
+.dark-bullets li {
+  color: inherit;
+}
+.dark-bullets li::marker {
+  color: currentColor !important;
+  opacity: 1 !important;
+}
+/* Custom bullet styling for the service section */
+.service-bullet-list {
+  list-style-type: disc !important;
+  margin-left: 1em !important;
+  padding-left: 0 !important;
+}
+.service-bullet-list li {
+  display: list-item !important;
+  list-style-position: outside !important;
+  margin-bottom: 0.5em !important;
+  position: relative !important;
+}
+.service-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: -1em;
+  color: currentColor;
+}
 .time-line-container>div:last-child .education__time>.education__line {
     display: none;
+}
+
+/* Timeline link hover styles */
+.timeline-link {
+    display: block;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.timeline-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 2px solid var(--color-primary);
+}
+
+.timeline-link:hover::before {
+    transform: translateX(0);
+}
+
+.timeline-link:hover .font-semibold {
+    color: var(--color-primary);
 }
 
 
