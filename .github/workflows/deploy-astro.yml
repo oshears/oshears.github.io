@@ -35,7 +35,7 @@ jobs:
           # Checkout submodules recursively
           submodules: recursive
           # Use a personal access token if you have private submodules
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SUBMODULE_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -46,14 +46,20 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
+
 
       - name: Copy content images
-        run: npm run copy-images:ci
+        run: pnpm run copy-images:ci
+
 
       - name: Build with Astro
-        run: npm run astro build
+        run: pnpm run astro build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
