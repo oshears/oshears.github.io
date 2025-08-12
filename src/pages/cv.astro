@@ -4,13 +4,44 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
 import { filterDrafts } from "../lib/content-config";
+import type { CollectionEntry } from 'astro:content';
 
-const cv = (await getCollection("cv"))[0].data;
-const allExperiences = await getCollection("experience");
-const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf());
+// Define default structure for CV data
+const defaultCvData = {
+  title: "Curriculum Vitae",
+  education: [] as any[],
+  skills: [] as string[],
+  awards: [] as any[]
+};
+
+// Add error handling for collections
+let cvData = { ...defaultCvData };
+try {
+  const cvCollection = await getCollection("cv");
+  if (cvCollection && cvCollection.length > 0) {
+    cvData = { ...defaultCvData, ...cvCollection[0].data };
+  }
+} catch (error) {
+  console.error("Error loading CV data:", error);
+}
+
+// Add error handling for experiences
+let experiences: CollectionEntry<'experience'>[] = [];
+try {
+  const allExperiences = await getCollection("experience");
+  if (allExperiences && allExperiences.length > 0) {
+    experiences = filterDrafts(allExperiences).sort((a, b) => {
+      const dateA = new Date(b.data.startDate || "2000-01-01").valueOf();
+      const dateB = new Date(a.data.startDate || "2000-01-01").valueOf();
+      return dateA - dateB;
+    });
+  }
+} catch (error) {
+  console.error("Error loading experience data:", error);
+}
 ---
 
-<BaseLayout title={cv.title} sideBarActiveItemID="cv">
+<BaseLayout title={cvData.title || "Curriculum Vitae"} sideBarActiveItemID="cv">
   <!-- <div class="mb-5">
     <div class="text-3xl w-full font-bold">Profile</div>
   </div> -->
@@ -25,15 +56,25 @@ const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.
 
   <div class="time-line-container grid gap-4 mb-10">
     {
-      cv.education.map((item, index) => (
-        <TimeLineElement
-          title={item.title}
-          subtitle={item.subtitle}
-          image={item.image}
-          isLast={index === cv.education.length - 1}
-          imageShape="square"
-        />
-      ))
+      cvData.education && cvData.education.length > 0 ? (
+        cvData.education.map((item, index) => {
+          const title = item?.title || 'Untitled';
+          const subtitle = item?.subtitle || '';
+          const image = item?.image || '';
+          
+          return (
+            <TimeLineElement
+              title={title}
+              subtitle={subtitle}
+              image={image}
+              isLast={index === cvData.education.length - 1}
+              imageShape="square"
+            />
+          );
+        })
+      ) : (
+        <p>Education information not available</p>
+      )
     }
   </div>
 
@@ -44,23 +85,40 @@ const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.
 
   <div class="time-line-container mb-10">
     {
-      experiences.map((item, index) => (
-        <a href={`/experience/${createSlug(item.data.title, item.id)}`}>
-          <TimeLineElement
-            title={item.data.title}
-            subtitle={`${new Date(item.data.startDate).toLocaleDateString()} - ${item.data.endDate ? new Date(item.data.endDate).toLocaleDateString() : 'Present'} at ${item.data.company}, ${item.data.location}`}
-            isLast={index === experiences.length - 1}
-            image={item.data.image}
-            isLink={true}
-          >
-            <ul class="list-disc ml-4">
-              {item.data.bullets.map(bullet => (
-                <li>{bullet}</li>
-              ))}
-            </ul>
-          </TimeLineElement>
-        </a>
-      ))
+      experiences && experiences.length > 0 ? (
+        experiences.map((item, index) => {
+          const experienceData = item.data || {};
+          const title = experienceData.title || 'Untitled';
+          const startDate = experienceData.startDate ? new Date(experienceData.startDate).toLocaleDateString() : 'Unknown';
+          const endDate = experienceData.endDate ? new Date(experienceData.endDate).toLocaleDateString() : 'Present';
+          const company = experienceData.company || '';
+          const location = experienceData.location || '';
+          const image = experienceData.image;
+          const bullets = experienceData.bullets || [];
+          
+          return (
+            <a href={`/experience/${createSlug(title, item.id || '')}`}>
+              <TimeLineElement
+                title={title}
+                subtitle={`${startDate} - ${endDate} at ${company}, ${location}`}
+                isLast={index === experiences.length - 1}
+                image={image}
+                isLink={true}
+              >
+                {bullets.length > 0 ? (
+                  <ul class="list-disc ml-4">
+                    {bullets.map(bullet => (
+                      <li>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </TimeLineElement>
+            </a>
+          );
+        })
+      ) : (
+        <p>Experience information not available</p>
+      )
     }
   </div>
 
@@ -84,9 +142,13 @@ const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.
 
   <ul class="list-disc md:columns-3 columns-2 mx-6 gap-x-8">
     {
-      cv.skills.map(item => (
-        <li class="mb-2 break-inside-avoid">{item}</li>
-      ))
+      cvData.skills && cvData.skills.length > 0 ? (
+        cvData.skills.map(item => (
+          <li class="mb-2 break-inside-avoid">{item}</li>
+        ))
+      ) : (
+        <p>Skills information not available</p>
+      )
     }
   </ul>
 
@@ -96,17 +158,25 @@ const experiences = filterDrafts(allExperiences).sort((a, b) => new Date(b.data.
 
   <ul class="list-disc md:columns-2 columns-2 mx-6 gap-x-8">
     {
-      cv.awards.map(item => (
-        <li class="mb-2 break-inside-avoid">
-          <div>
-            <strong>{item.title}</strong><br />
-            {item.year}<br />
-            <em>{item.description}</em>
-          </div>
+      cvData.awards && cvData.awards.length > 0 ? (
+        cvData.awards.map((item: any) => {
+          const title = item?.title || 'Untitled Award';
+          const year = item?.year || '';
+          const description = item?.description || '';
           
-        </li>
-        // <li class="mb-2 break-inside-avoid">{item.year}</li>
-      ))
+          return (
+            <li class="mb-2 break-inside-avoid">
+              <div>
+                <strong>{title}</strong><br />
+                {year}<br />
+                <em>{description}</em>
+              </div>
+            </li>
+          );
+        })
+      ) : (
+        <p>Awards information not available</p>
+      )
     }
   </ul>
 
