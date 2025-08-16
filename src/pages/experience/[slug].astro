@@ -3,6 +3,7 @@ import ExperienceLayout from "../../layouts/ExperienceLayout.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../../lib/createSlug";
 import { filterDrafts } from "../../lib/content-config";
+import HorizontalCard from "../../components/HorizontalCard.astro";
 
 export async function getStaticPaths() {
   const allExperiences = await getCollection("experience");
@@ -35,6 +36,12 @@ const extractFirstBullets = (markdown) => {
 };
 const markdown = experience.body || '';
 const bullets = extractFirstBullets(markdown);
+
+// Related projects by matching badge
+const allProjects = await getCollection("projects");
+const relatedProjects = filterDrafts(allProjects)
+  .filter(p => experience.data.badge && p.data.badge === experience.data.badge)
+  .sort((a,b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <ExperienceLayout
@@ -53,4 +60,21 @@ const bullets = extractFirstBullets(markdown);
     </ul>
   )} -->
   <Content />
+  {relatedProjects.length > 0 && (
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold mb-4">Related Projects</h2>
+      <div class="flex flex-col gap-4">
+        {relatedProjects.map(project => (
+          <HorizontalCard
+            title={project.data.title}
+            img={project.data.heroImage}
+            desc={project.data.description}
+            url={`/projects/${project.slug}/`}
+            badge={project.data.badge}
+            tags={project.data.tags}
+          />
+        ))}
+      </div>
+    </div>
+  )}
 </ExperienceLayout>
