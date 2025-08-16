@@ -16,37 +16,56 @@ on:
 jobs:
   update-submodule:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+    concurrency:
+      group: update-content-submodule
+      cancel-in-progress: false
+    env:
+      CONTENT_SUBMODULE_PATH: src/content
+      CONTENT_BRANCH: main # adjust if different
     steps:
-      - name: Checkout with submodules
+      - name: Checkout (no submodules yet)
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
           token: ${{ secrets.SUBMODULE_TOKEN }}
 
-      - name: Update submodules to latest
+      - name: Sync and init submodule
         run: |
-          git submodule update --remote --merge
-          
-      - name: Check if submodule was updated
+          git submodule sync --recursive
+          git submodule update --init --recursive "$CONTENT_SUBMODULE_PATH"
+
+      - name: Update submodule to latest remote branch (hard reset to avoid unrelated histories)
+        run: |
+          set -e
+          cd "$CONTENT_SUBMODULE_PATH"
+          git fetch origin "$CONTENT_BRANCH"
+          # If history was force-pushed or diverged, just align to remote branch tip
+          git checkout "$CONTENT_BRANCH" || git checkout -b "$CONTENT_BRANCH" "origin/$CONTENT_BRANCH"
+          git reset --hard "origin/$CONTENT_BRANCH"
+          cd -
+          # Stage updated submodule pointer
+          git add "$CONTENT_SUBMODULE_PATH"
+
+      - name: Detect changes in submodule pointer
         id: check_changes
         run: |
-          if git diff --quiet HEAD; then
-            echo "No changes detected"
+          if git diff --cached --quiet; then
+            echo "No changes";
             echo "changes=false" >> $GITHUB_OUTPUT
           else
-            echo "Changes detected in submodules"
+            echo "Submodule pointer updated";
             echo "changes=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Commit and push submodule updates
+      - name: Commit and push updated submodule pointer
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Update content submodule to latest commit"
-          git push
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git commit -m "chore: update content submodule to latest $CONTENT_BRANCH" || echo "Nothing to commit"
+          git push origin HEAD:${{ github.ref_name }}
 
       - name: Trigger site rebuild
         if: steps.check_changes.outputs.changes == 'true'
