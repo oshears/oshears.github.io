@@ -1,7 +1,8 @@
 ---
 const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
 import { Image } from "astro:assets";
-const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
+// Build base tag URL at site root under /tag
+const tag_url = "/tag";
 ---
 
 <div
@@ -31,7 +32,7 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
           {
             tags &&
               tags.map((tag) => (
-                <a href={`${tag_url}/${tag}`} class="badge badge-outline">
+                <a href={`${tag_url}/${tag}`} class="badge badge-outline" target="_self">
                   {tag}
                 </a>
               ))

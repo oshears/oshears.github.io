@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HorizontalCard from "../../components/HorizontalCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import createSlug from "../../lib/createSlug";
+import { filterDrafts } from "../../lib/content-config";
+
+export async function getStaticPaths() {
+  const allProjects = filterDrafts(await getCollection("projects")) as CollectionEntry<"projects">[];
+  const tagSet = new Set<string>();
+  allProjects.forEach(p => (p.data.tags || []).forEach(t => tagSet.add(t)));
+  return Array.from(tagSet).map(tag => ({ params: { tag }, props: { tag } }));
+}
+
+const { tag } = Astro.props as { tag: string };
+const allProjects = filterDrafts(await getCollection("projects")) as CollectionEntry<"projects">[];
+const taggedProjects = allProjects
+  .filter(p => (p.data.tags || []).includes(tag))
+  .sort((a,b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout sideBarActiveItemID="projects" title={`Tag: ${tag}`} description={`Projects tagged ${tag}`}> 
+  <div class="text-3xl font-bold">Tag: {tag}</div>
+  <div class="text-sm mb-5">{taggedProjects.length} project{taggedProjects.length === 1 ? '' : 's'} with this tag</div>
+  {taggedProjects.map(project => (
+    <>
+      <HorizontalCard
+        title={project.data.title}
+        img={project.data.heroImage}
+        desc={project.data.description}
+        url={`/projects/${createSlug(project.data.title, project.slug)}`}
+        target="_self"
+        badge={project.data.badge}
+        tags={project.data.tags}
+      />
+      <div class="divider my-0" />
+    </>
+  ))}
+  {taggedProjects.length === 0 && <div>No projects found for this tag.</div>}
+</BaseLayout>

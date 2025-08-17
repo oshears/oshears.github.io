@@ -6,7 +6,12 @@ import createSlug from "../../lib/createSlug";
 import { filterDrafts } from "../../lib/content-config";
 
 const allProjects = await getCollection("projects");
-const projects = filterDrafts(allProjects).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const getTime = (p: any) => {
+  const d = p.data?.pubDate;
+  if (!d) return 0;
+  return d instanceof Date ? d.getTime() : new Date(d).getTime();
+};
+const projects = filterDrafts(allProjects).sort((a, b) => getTime(b) - getTime(a));
 ---
 
 <BaseLayout sideBarActiveItemID="projects">
@@ -22,6 +27,7 @@ const projects = filterDrafts(allProjects).sort((a, b) => b.data.pubDate.valueOf
           url={"/projects/" + createSlug(project.data.title, project.slug)}
           target="_self"
           badge={project.data.badge}
+          tags={project.data.tags}
         />
         <div class="divider my-0" />
       </>

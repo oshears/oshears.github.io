@@ -9,13 +9,13 @@ import { filterDrafts } from "../lib/content-config";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt({ html: true, breaks: true });
 
-const allPosts = await getCollection("blog");
-const posts = filterDrafts(allPosts).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const last_posts = posts.slice(0, 3);
+// const allPosts = await getCollection("blog");
+// const posts = filterDrafts(allPosts).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+// const last_posts = posts.slice(0, 3);
 
-const allProjects = await getCollection("projects");
-const projects = filterDrafts(allProjects).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const last_projects = projects.slice(0, 3);
+// const allProjects = await getCollection("projects");
+// const projects = filterDrafts(allProjects).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+// const last_projects = projects.slice(0, 3);
 
 const indexContent = (await getCollection("index"))[0];
 const index = indexContent.data;

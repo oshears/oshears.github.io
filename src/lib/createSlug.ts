@@ -2,11 +2,14 @@
 
 import { GENERATE_SLUG_FROM_TITLE } from '../config'
 
-export default function (title: string, staticSlug: string) {
+export default function (title: string | undefined | null, staticSlug: string) {
+  // Fallback if title missing or not a usable string
+  if (!GENERATE_SLUG_FROM_TITLE) return staticSlug;
+  if (typeof title !== 'string') return staticSlug;
+  const t = title.trim();
+  if (!t) return staticSlug;
   return (
-    !GENERATE_SLUG_FROM_TITLE ? staticSlug : title
-      // remove leading & trailing whitespace
-      .trim()
+    t
       // output lowercase
       .toLowerCase()
       // replace spaces

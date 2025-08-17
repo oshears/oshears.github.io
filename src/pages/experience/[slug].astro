@@ -61,7 +61,7 @@ const relatedProjects = filterDrafts(allProjects)
   )} -->
   <Content />
   {relatedProjects.length > 0 && (
-    <div class="mt-12">
+    <div class="mt-12 not-prose">
       <h2 class="text-2xl font-bold mb-4">Related Projects</h2>
       <div class="flex flex-col gap-4">
         {relatedProjects.map(project => (
